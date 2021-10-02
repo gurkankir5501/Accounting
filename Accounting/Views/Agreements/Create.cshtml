@@ -1,0 +1,110 @@
+﻿@model Accounting.Models.Agreement
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+@ViewBag.a
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Mutabakat İşlemleri</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+                @using (Html.BeginForm("Create", "Agreements", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.year, htmlAttributes: new { @class = "control-label col-md-4" })
+
+                            <div class="col-md-10">
+                                @Html.DropDownList("year", new List<SelectListItem> {
+                                    new SelectListItem {Text="2021",Value="2021"},
+                                    new SelectListItem {Text="2022",Value="2022",},
+                                    new SelectListItem {Text="2023",Value="2023",},
+                                    new SelectListItem {Text="2024",Value="2024",},
+                                    new SelectListItem {Text="2025",Value="2025",},
+                                    new SelectListItem {Text="2026",Value="2026",},
+                                    new SelectListItem {Text="2027",Value="2027",},
+                                    new SelectListItem {Text="2028",Value="2028",},
+                                    new SelectListItem {Text="2029",Value="2029",},
+                                    new SelectListItem {Text="2030",Value="2030",},
+                                    new SelectListItem {Text="2031",Value="2031",},
+                                    new SelectListItem {Text="2032",Value="2032",},
+
+                                 }, new { @class = "form-control" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.month, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("month", new List<SelectListItem> {
+                                    new SelectListItem {Text="Ocak",Value="01"},
+                                    new SelectListItem {Text="Şubat",Value="02"},
+                                    new SelectListItem {Text="Mart",Value="03"},
+                                    new SelectListItem {Text="Nisan",Value="04"},
+                                    new SelectListItem {Text="Mayıs",Value="05"},
+                                    new SelectListItem {Text="Haziran",Value="06"},
+                                    new SelectListItem {Text="Temmuz",Value="07"},
+                                    new SelectListItem {Text="Ağustos",Value="08"},
+                                    new SelectListItem {Text="Eylül",Value="09"},
+                                    new SelectListItem {Text="Ekim",Value="10"},
+                                    new SelectListItem {Text="Kasım",Value="11"},
+                                    new SelectListItem {Text="Aralık",Value="12"}
+
+                                    }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.month, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.Label("Dosya Yükleyiniz!!!", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.documentname, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                               
+                            </div>
+                        </div>
+
+                        @Html.HiddenFor(model => model.agreementType)
+
+                        @Html.HiddenFor(model => model.buyingSales)
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Geri Dön", "Index", new { type = ViewBag.type, buyingSales = ViewBag.buyingSales }, new { @class = "btn btn-purple" })
+                                <input type="submit" value="Ekle" class="btn btn-pink" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+
+    </div>
+</div>
+
+

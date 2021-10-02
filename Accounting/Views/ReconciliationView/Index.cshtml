@@ -1,0 +1,434 @@
+﻿@using Accounting.Models
+@model Reconciliations
+@{
+    Layout = null;
+    var customer = (Customers)ViewBag.customer;
+    var document = (List<ReconciliationsDocument>)ViewBag.document;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mutabakat Onay Ekranı</title>
+    <link rel="icon" href="~/Content/images/Apple_Hesap_makinesi_Calculator-icon.png">
+    @Html.Partial("/Views/Shared/_header.cshtml")
+
+
+
+    
+
+</head>
+<body class="bg-pale-secondary">
+
+    <div class="box box-inverse box-dark">
+        <div class="box-body tickers-block">
+            <ul id="webticker-1">
+                <li>Mutabakatınızı bir ay içerisinde bildirmediğiniz takdirde T.T.K nun 92.Madddesi gereğince mutabık sayilacağımızı hatırlatırız !!!</li>
+                <li>Bakiyede mutabık olmadığınız takdirde hesap ekstrenizi tarafımıza acilen ileterek bu formu reddedebilirsiniz !!!</li>
+                <li>Hata ve unutma müstesnadır !!!</li>
+                <li> Bu mutabakat yazısı elektronik ortam gönderilmektedir !!!</li>
+                <li>Lütfen Adres ve iletişim bilgilerinizdeki değişiklilerinizi tarafimiza bildiriniz !!!</li>
+
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <section class="content">
+
+
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+
+                        <div class="box">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Mesaj Kutusu</h3>
+
+                                <ul class="box-controls pull-right">
+
+                                    <li><a class="box-btn-slide" href="#"></a></li>
+
+                                </ul>
+
+                            </div>
+                            <div class="box-body">
+
+                                <div class="container">
+                                    <table id="example6" class="table table-striped table-hover table-responsive-md">
+
+                                        <thead>
+                                            <tr>
+                                                <td style="width:100px;text-align:center">Mesaj Sahibi</td>
+                                                <td style="width:140px;text-align:center">Tarih</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var item in document)
+                                            {
+                                                <tr>
+                                                    @if (item.setGetStatus == true)
+                                                    {
+                                                        <td style="text-align:center"><input type="button" class="btn btn-pink btn-sm" value="Siz" /></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td style="text-align:center"><input type="button" class="btn btn-purple btn-sm" value="Yetkili" /></td>
+                                                    }
+                                                    <td style="text-align:center">@item.operationDate</td>
+                                                    <td>
+                                                        <input type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#@item.reconciliationsDocumentID.ToString()" value="Mesajı Göster" />
+                                                    </td>
+
+
+                                                </tr>
+
+
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td style="width:100px;text-align:center">Mesaj Sahibi</td>
+                                                <td style="width:140px;text-align:center">Tarih</td>
+                                                <td></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                    @foreach (var item in document)
+                                    {
+
+                                        <!-- Modal -->
+                                        <div class="modal center-modal fade" id="@item.reconciliationsDocumentID.ToString()" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h6 class="modal-title">Mesaj Detayı - Tarih / Saat Bilgisi : @item.operationDate</h6>
+                                                        <btn type="button" class="close" data-dismiss="modal">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </btn>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="box box-solid bg-warning">
+                                                            <div class="box-header with-border">
+                                                                <h4 class="box-title box-title-bold">Mesaj</h4>
+                                                            </div>
+                                                            <div class="box-body">
+
+                                                                <p>@item.messages </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-footer">
+                                                        <h5> Belgeler <span>(@item.Document.ToList().Count)</span></h5>
+                                                        <ul class="mailbox-attachments clearfix">
+
+                                                            @foreach (var i in item.Document)
+                                                            {
+                                                                <li>
+                                                                    <a href="@i.documentPath" target="_blank" class="mailbox-attachment-name">
+
+                                                                        <span class="mailbox-attachment-icon has-img"><img src="@Url.Content("~/Content/images/belgeler_icon.png")" alt=""></span>
+
+                                                                        <div class="mailbox-attachment-info">
+
+
+                                                                            
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal -->
+
+                                    }
+
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+
+                <!-- Default box -->
+                <div class="box">
+                    <div class="box-header with-border">
+                        @if (Model.Agreement.agreementType == true)
+                        {
+                            <h3 class="box-title">Mutabakat Onay Ekranı - Cari Mutabakat</h3>
+                        }
+                        else
+                        {
+                            <h3 class="box-title">Mutabakat Onay Ekranı - Fatura Mutabakat</h3>
+                        }
+
+                        <ul class="box-controls pull-right">
+                            <li><a class="box-btn-close" href="#"></a></li>
+                            <li><a class="box-btn-slide" href="#"></a></li>
+                            <li><a class="box-btn-fullscreen" href="#"></a></li>
+                        </ul>
+
+                    </div>
+                    <div class="box-body">
+
+
+                        <!-- Main content -->
+                        <section class="invoice printableArea">
+                            <!-- title row -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-header">
+                                        <h3 class="d-inline">
+                                            ARISAN SAMSUN AKIN
+                                            REJENERE KAUÇUK VE LASTİK AYAKKABI LTD. ŞTİ.
+                                        </h3>
+                                        <br /><br />
+                                        <div class="flexbox">
+                                            <div>
+                                                <p class="d-inline mb-0">Organize Sanayi Bölgesi Sakarya Cd. No:8 Kutlukent SAMSUN/TÜRKİYE</p>
+                                                <p><strong>Telefon: +90(549) 896-99-99 &nbsp;&nbsp;&nbsp;&nbsp; Email: mesut.serdar@arisanlastik.com.tr</strong></p>
+                                                <p>
+                                                    <strong>
+                                                        Muhasebe müdürü :
+                                                    </strong>
+                                                    Mesut SERDAR
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- info row -->
+                            <div class="row invoice-info">
+                                <div class="col-12 invoice-col">
+                                    <div class="flexbox">
+                                        <div>
+                                            <strong>Sayın</strong><br>
+                                            <h4 class="text-danger">@customer.customerName</h4>
+                                        </div>
+                                        <div class="text-right">
+                                            @customer.customerAddress<br>
+                                            <strong>Telefon: @customer.customerGSM &nbsp;&nbsp;&nbsp;&nbsp; Email: @customer.customerDescription</strong>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-12 invoice-col">
+                                    <div class="invoice-details row mx-0 my-15">
+
+                                        <div class="col-md-6 col-lg-3 float-md-right"><b>Tarih:</b> @DateTime.Now </div>
+
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                            <!-- Table row -->
+                            <div class="row">
+                                <div class="col-12 table-responsive">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+
+                                                <th class="text-center">Fatura Adeti</th>
+                                                <th class="text-center">Tutar</th>
+                                                <th class="text-center">Hesap Tipi</th>
+
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">@Model.documentNumber</td>
+                                                <td class="text-center">@Model.amountService.ToString("#,##0.00") TL</td>
+                                                @if (Model.Agreement.buyingSales == true)
+                                                {
+                                                    <td class="text-center">Verecekli</td>
+                                                }
+                                                else
+                                                {
+                                                    <td class="text-center">Alacaklı</td>
+                                                }
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="row mt-md-50">
+                                <div class="col-md-6 col-12">
+
+
+                                </div>
+                                <div class="col-md-6 col-12 text-right">
+
+                                    <div class="total-payment">
+                                        <h3><b>Toplam Tutar :</b> @Model.amountService.ToString("#,##0.00") TL</h3>
+                                    </div>
+
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="row mt-md-20">
+
+                                <div class="col-12">
+                                    <h4>Açıklama :</h4>
+                                    <p>1-) Mutabakatınızı bir ay içerisinde bildirmediğiniz takdirde T.T.K nun 92.Madddesi gereğince mutabık sayilacağımızı hatırlatırız .</p>
+                                    <p>2-) Bakiyede mutabık olmadığınız takdirde hesap ekstrenizi tarafımıza acilen ileterek bu formu reddedebilirsiniz .</p>
+                                    <p>3-) Hata ve unutma müstesnadır .</p>
+                                    <p>4-) Bu mutabakat yazısı elektronik ortam gönderilmektedir .</p>
+                                    <p>5-) Lütfen Adres ve iletişim bilgilerinizdeki değişiklilerinizi tarafimiza bildiriniz .</p>
+                                </div>
+
+                            </div>
+
+                            <!-- this row will not appear when printing -->
+                            <div class="row no-print mt-md-30" id="button">
+                                <div class="col-12">
+
+                                    <input type="button" class="btn btn-danger pull-right mx-md-10" onclick="notApprove()" data-toggle="modal" data-target="#modal-center" value="Onaylamıyorum" />
+                                    <input type="button" class="btn btn-success pull-right ml-md-5" onclick="Approve()" value="Onaylıyorum" />
+
+                                </div>
+                            </div>
+
+
+                        </section>
+                        <!-- /.content -->
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- Default box -->
+
+            </section>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal center-modal fade" id="modal-center" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Not: Mutabık olmadığınız takdirde hesap ekstrenizi tarafımıza acilen iletmeniz gerekmektedir !!!</h6>
+                    <btn type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </btn>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        @Html.Action("notApprove", "ReconciliationView", new { reconID = Model.reconID })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+
+    @Html.Partial("/Views/Shared/_footer.cshtml")
+
+    <script type="text/javascript">
+
+        function Approve() {
+
+            //Onaylıorum - Onaylamıorum butonlarını kaldır
+            document.getElementById("button").hidden = true;
+
+            swal({
+                title: "Onaylamak İstediğinize Emin misiniz?",
+                type: "warning",
+                html: true,
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Onayla",
+                cancelButtonText: "Vazgeç",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+
+                    if (isConfirm) {
+
+                        $.ajax({
+
+                            url: '@Url.Action("Approve", "ReconciliationView",new {reconID = Model.reconID.ToString() })',
+                            type: 'GET',
+                            dataType: 'JSON',
+                            success: function (data) {
+
+                                if (data.res == 1) {
+
+                                    swal({
+                                        title: "İşlem Başarılı!",
+                                        type: "success",
+                                        html: true,
+                                        timer: 3000
+                                    },
+                                        function () {
+                                            window.location='@Url.Action("confirm", "ReconciliationView")';
+                                        }
+                                    );
+                                }
+                            }
+                        });
+                    }
+                    else {
+
+                        swal({
+                            title: "İptal",
+                            text: "<strong>İşlem İptal Edildi !</strong>",
+                            type: "error",
+                            confirmButtonText:"tamam",
+                            html: true,
+                            timer: 3000
+
+                        },
+                            function () {
+
+                                //Onaylıorum - Onaylamıorum butonlarını kaldır
+                                document.getElementById("button").hidden = false;
+                            });
+                    }
+                });
+        }
+
+        function notApprove() {
+
+            //Onaylıorum - Onaylamıorum butonlarını kaldır
+
+
+
+        }
+
+    </script>
+</body>
+</html>

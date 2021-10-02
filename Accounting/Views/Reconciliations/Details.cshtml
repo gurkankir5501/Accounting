@@ -1,0 +1,583 @@
+﻿@using Accounting.Models
+@model Reconciliations
+
+@{
+    ViewBag.Title = "Mutabakat Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var customer = (Customers)ViewBag.customer;
+    var document = (List<ReconciliationsDocument>)ViewBag.document;
+
+}
+<div>
+    <span>  @Html.ActionLink("Geri Dön", "Index", new { id = ViewBag.agreementID }, new { @class = "btn btn-purple" })</span>
+    <input type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#@Model.reconID.ToString()" value="Cevap Yaz" />
+</div>
+<div class="row mt-md-10">
+
+    <div class="col-md-6">
+
+        <div class="box " style="height:575px">
+            <div class="box-header with-border">
+                <h3 class="box-title">Mutabakat Detayı</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div>
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayName("Ad Soyad/Ünvan :")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.title)
+                        </dd>
+
+
+
+                        <dt>
+                            @Html.DisplayName("Vergi No :")
+                        </dt>
+
+                        @if (Model.taxNumber != null)
+                        {
+                            <dd>
+                                @Html.DisplayFor(model => model.taxNumber)
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+
+                        }
+
+                        <dt>
+                            @Html.DisplayName("Fatura Adeti :")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.documentNumber)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Hizmet/Mal Tutarı :")
+                        </dt>
+
+                        <dd>
+                            @Model.amountService.ToString("#,##0.00") TL
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("Telefon Numarası :")
+                        </dt>
+
+                        @if (Model.phoneNumber != null)
+                        {
+                            <dd>
+                                @Html.DisplayFor(model => model.phoneNumber)
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+                        }
+
+                        <dt>
+                            @Html.DisplayName("Tc No :")
+                        </dt>
+
+                        @if (Model.tcNumber != null)
+                        {
+                            <dd>
+                                @Html.DisplayFor(model => model.tcNumber)
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+                        }
+
+                        <dt>
+                            @Html.DisplayName("Görüşen :")
+                        </dt>
+
+                        @if (Model.representative != null)
+                        {
+                            <dd>
+                                @Html.DisplayFor(model => model.representative)
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+                        }
+
+                        <dt>
+                            @Html.DisplayName("Görüşülen :")
+                        </dt>
+
+                        @if (Model.customer != null)
+                        {
+                            <dd>
+                                @Html.DisplayFor(model => model.customer)
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+                        }
+
+                        <dt>
+                            @Html.DisplayName("Ülke :")
+                        </dt>
+
+                        @if (Model.country != null)
+                        {
+                            <dd>
+                                @Html.DisplayFor(model => model.country)
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+                        }
+
+                        <dt>
+                            @Html.DisplayName("Durumu :")
+                        </dt>
+
+
+                        @if (Model.status == 1 && Model.sentStatus == false)
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-warning btn-sm" value="Gönderilemedi!">
+                            </dd>
+                        }
+                        else if (Model.status == 1 && Model.sentStatus == true)
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-primary btn-sm" value="Gönderildi">
+                            </dd>
+
+
+                        }
+                        else if (Model.status == 2)
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-success btn-sm" value="Mutabık Olundu">
+                            </dd>
+
+
+                        }
+                        else if (Model.status == 3)
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-danger btn-sm" value="Mutabık Olunmadı!">
+                            </dd>
+
+
+                        }
+                        else if (Model.status == 6)
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-light btn-sm" value="5.000 TL Altı!">
+                            </dd>
+
+
+                        }
+                        else if (Model.status == 0)
+                        {
+                            <dd>
+                                Belirtilmemiş
+                            </dd>
+                        }
+
+
+                        <dt>
+                            @Html.DisplayName("İşlem Durumu :")
+                        </dt>
+
+                        @if (Model.processStatus == false)
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-danger btn-sm" value="Süreç Kapalı!">
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                <input type="button" class="btn btn-success btn-sm" value="Süreç Açık!">
+                            </dd>
+                        }
+
+
+
+                    </dl>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+
+    </div>
+    <div class="col-md-6">
+
+
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Mesaj Kutusu</h3>
+
+                <ul class="box-controls pull-right">
+
+                    <li><a class="box-btn-slide" href="#"></a></li>
+
+                </ul>
+
+            </div>
+            <div class="box-body" style="height:525px;overflow-y:scroll">
+
+                <div class="container">
+
+                    @if (document.Count != 0)
+                    {
+                        <table id="example6" class="table table-responsive-md table-hover" >
+
+                            <thead>
+                                <tr>
+                                    <td style="width:100px;text-align:center">Mesaj Sahibi</td>
+                                    <td style="width:140px;text-align:center">Tarih</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in document)
+                                {
+                                    <tr>
+                                        @if (item.setGetStatus == true)
+                                        {
+                                            <td style="text-align:center"><input type="button" class="btn btn-pink btn-sm" value="Kullanıcı" /></td>
+                                        }
+                                        else
+                                        {
+                                            <td style="text-align:center"><input type="button" class="btn btn-purple btn-sm" value="Siz" /></td>
+                                        }
+                                        <td style="text-align:center">@item.operationDate</td>
+                                        <td>
+                                            <input type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#@item.reconciliationsDocumentID.ToString()" value="Mesajı Göster" />
+                                        </td>
+
+
+                                    </tr>
+
+
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td style="width:100px;text-align:center">Mesaj Sahibi</td>
+                                    <td style="width:140px;text-align:center">Tarih</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        foreach (var item in document)
+                        {
+
+                            <!-- Modal -->
+                            <div class="modal center-modal fade" id="@item.reconciliationsDocumentID.ToString()" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="height:600px;width:auto">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">Mesaj Detayı - Tarih / Saat Bilgisi : @item.operationDate</h6>
+                                            <btn type="button" class="close" data-dismiss="modal">
+                                                <span aria-hidden="true">&times;</span>
+                                            </btn>
+                                        </div>
+                                        <div class="modal-body" style="overflow-y:scroll">
+                                            <div class="box box-solid bg-warning">
+                                                <div class="box-header with-border">
+                                                    <h4 class="box-title box-title-bold">Mesaj</h4>
+                                                </div>
+                                                <div class="box-body">
+
+                                                    <p>@item.messages </p>
+                                                </div>
+                                            </div>
+                                            <div class="box-footer">
+                                                <h5> Belgeler <span>(@item.Document.ToList().Count)</span></h5>
+                                                <ul class="mailbox-attachments clearfix">
+
+                                                    @foreach (var i in item.Document)
+                                                    {
+                                                        <li>
+                                                            <a href="@i.documentPath" target="_blank" class="mailbox-attachment-name">
+
+                                                                <span class="mailbox-attachment-icon has-img"><img src="@Url.Content("~/Content/images/belgeler_icon.png")" alt=""></span>
+
+                                                                <div class="mailbox-attachment-info">
+
+
+
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        
+
+                                        <input type="button" class="close btn btn-danger" data-dismiss="modal" value="Kapat" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.modal -->
+                           
+                        }
+                    }
+                    else
+                    {
+                        <div>
+
+                            <div class=" alert alert-danger">
+                                Mesaj Kutusu boş
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal center-modal fade" id="@Model.reconID.ToString()" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Uyarı : Müşteri sistemde kayıtlı değil ise veya müşteri kayıtlı ama e-mail bilgisi kayıtlı değil ise bu mesaj gönderilemez!!! Gönderim işleminin başarılı bir şekilde yapılıp yapılmadığını sol taraftaki mutabakat detay bölümünden durum bilgisine bakarak kontrol edebilirsiniz !!!</h6>
+                    <btn type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </btn>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <form action="@Url.Action("resultSet","ReconciliationView")" method="post" enctype="multipart/form-data">
+
+
+                            <div>
+                                <input type="hidden" name="reconID" value="@Model.reconID" />
+                                <div class="form-group">
+
+                                    <textarea type="text" class="form-control" rows="10" name="messages" placeholder="Mesajınız" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="file" name="files" class="form-control btn btn-outline-info" id="file1" multiple />
+                                </div>
+
+                                <p>Dosyalarınızı excel , resim veya pdf formatında yükleyiniz !!!</p>
+                            </div>
+
+
+                            <hr />
+                            <input type="button" class="btn btn-bold btn-pure btn-secondary" data-dismiss="modal" value="Kapat" />
+                            <input type="submit" class="btn btn-bold btn-pure btn-primary float-right" value="Gönder" />
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+<div class="row  mt-md-10">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                @if (Model.Agreement.agreementType == true)
+                {
+                    <h3 class="box-title">Mutabakat Onay Ekranı - Cari Mutabakat</h3>
+                }
+                else
+                {
+                    <h3 class="box-title">Mutabakat Onay Ekranı - Fatura Mutabakat</h3>
+                }
+
+                <ul class="box-controls pull-right">
+                    <li><a class="box-btn-close" href="#"></a></li>
+                    <li><a class="box-btn-slide" href="#"></a></li>
+                    <li><a class="box-btn-fullscreen" href="#"></a></li>
+                </ul>
+
+            </div>
+            <div class="box-body">
+
+
+                <!-- Main content -->
+                <section class="invoice printableArea">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-header">
+                                <h3 class="d-inline">
+                                    ARISAN SAMSUN AKIN
+                                    REJENERE KAUÇUK VE LASTİK AYAKKABI LTD. ŞTİ.
+                                </h3>
+                                <br /><br />
+                                <div class="flexbox">
+                                    <div>
+                                        <p class="d-inline mb-0">Organize Sanayi Bölgesi Sakarya Cd. No:8 Kutlukent SAMSUN/TÜRKİYE</p>
+                                        <p><strong>Telefon: +90(549) 896-99-99 &nbsp;&nbsp;&nbsp;&nbsp; Email: mesut.serdar@arisanlastik.com.tr</strong></p>
+                                        <p>
+                                            <strong>
+                                                Muhasebe müdürü :
+                                            </strong>
+                                            Mesut SERDAR
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-12 invoice-col">
+                            <div class="flexbox">
+                                <div>
+                                    <strong>Sayın</strong><br>
+                                    <h4 class="text-danger">@customer.customerName</h4>
+                                </div>
+                                <div class="text-right">
+                                    @customer.customerAddress<br>
+                                    <strong>Telefon: @customer.customerGSM &nbsp;&nbsp;&nbsp;&nbsp; Email: @customer.customerDescription</strong>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-12 invoice-col">
+                            <div class="invoice-details row mx-0 my-15">
+
+                                <div class="col-md-7 col-lg-4 "><b>Tarih:</b> @DateTime.Now </div>
+
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+
+                                        <th class="text-center">Fatura Adeti</th>
+                                        <th class="text-center">Tutar</th>
+                                        <th class="text-center">Hesap Tipi</th>
+
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">@Model.documentNumber</td>
+                                        <td class="text-center">@Model.amountService.ToString("#,##0.00") TL</td>
+                                        @if (Model.Agreement.buyingSales == true)
+                                        {
+                                            <td class="text-center">Verecekli</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-center">Alacaklı</td>
+                                        }
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row mt-md-50">
+                        <div class="col-md-6 col-12">
+
+
+                        </div>
+                        <div class="col-md-6 col-12 text-right">
+
+                            <div class="total-payment">
+                                <h3><b>Toplam Tutar :</b> @Model.amountService.ToString("#,##0.00") TL</h3>
+                            </div>
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row mt-md-20">
+
+                        <div class="col-12">
+                            <h4>Açıklama :</h4>
+                            <p>1-) Mutabakatınızı bir ay içerisinde bildirmediğiniz takdirde T.T.K nun 92.Madddesi gereğince mutabık sayilacağımızı hatırlatırız .</p>
+                            <p>2-) Bakiyede mutabık olmadığınız takdirde hesap ekstrenizi tarafımıza acilen ileterek bu formu reddedebilirsiniz .</p>
+                            <p>3-) Hata ve unutma müstesnadır .</p>
+                            <p>4-) Bu mutabakat yazısı elektronik ortam gönderilmektedir .</p>
+                            <p>5-) Lütfen Adres ve iletişim bilgilerinizdeki değişiklilerinizi tarafimiza bildiriniz .</p>
+                        </div>
+
+                    </div>
+
+                    
+
+
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- Default box -->
+
+    </div>
+    <div class="col-md-2"></div>
+</div>

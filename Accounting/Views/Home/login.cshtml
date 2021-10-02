@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ArısanLastik">
+    <meta name="author" content="">
+    <link rel="icon" href="@Url.Content("~/Content/images/Apple_Hesap_makinesi_Calculator-icon.png")">
+
+    <title>Mutabakat Yazılımı - Giriş Ekranı </title>
+
+    @Html.Partial("/Views/Shared/_header.cshtml")
+</head>
+
+<body class="hold-transition bg-img" style="background-image: url(@Url.Content("/Content/images/6.jpg"))" data-overlay="4">
+
+    <div class="container h-p100 ">
+        <div class="row align-items-center justify-content-md-center h-p100 ">
+
+            <div class="col-lg-5 col-md-8 col-12 mt-md-50">
+                <div class="content-top-agile">
+                    <h2>ARISAN LASTİK</h2>
+                    <p class="text-white">Carİ - Fatura Mutabakat Yazılımına <br />HoŞgeldİnİz</p>
+                </div>
+                <div class="p-40 mt-10 bg-white content-bottom">
+                    <form action="@Url.Action("login","Home")" method="post">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-danger border-danger"><i class="ti-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" name="userName" value="@ViewBag.userName" placeholder="Kullanıcı Adı" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-danger border-danger"><i class="ti-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" name="password" value="@ViewBag.password" placeholder="Parola" required>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <!-- /.col -->
+                            <div class="col-12 text-center">
+                                <input type="submit" class="btn btn-danger btn-block margin-top-10" value="Giriş Yap" />
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    @Html.Partial("/Views/Shared/_footer.cshtml")
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+             if ('@ViewBag.res' == 10) {
+
+                    swal("Giriş Başarısız", "Kullanıcı Adı veya Parola Hatalı !!!", "error");
+             }
+        });
+    </script>
+</body>
+
+
+</html>

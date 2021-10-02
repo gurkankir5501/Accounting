@@ -1,0 +1,381 @@
+﻿@using Accounting.Models
+@model IEnumerable<Accounting.Models.Reconciliations>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-12">
+    <div class="box">
+        <div class="box-header with-border">
+
+            <div class="float-md-left">
+                <h2 class="box-title">Mutabakatlar</h2><br />
+                @Html.ActionLink("Geri Dön", "Index", "Agreements", new { type = ViewBag.type, buyingSales = ViewBag.buyingSales }, new { @class = "btn btn-purple btn-sm" })
+            </div>
+            <p class="float-md-right">
+                @Html.ActionLink("Ekle", "Create", new { id = ViewBag.agreementID }, new { @class = "btn btn-primary" })
+            </p>
+        </div>
+
+        <!-- /.box-header -->
+        <div class="box-body">
+            
+                Tümünü Seç Butonu
+                 <span class="">
+                     <input type="button" id="selectAllButton" class="btn btn-blue btn-sm float-md-right mr-md-25 mb-md-5" value="Tümünü Sec">
+                </span>
+
+            
+
+            <div class="table-responsive">
+                <table id="example6" class="table table-bordered table-hover table-responsive-md table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Ad Soyad/ Ünvan")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("Vergi No")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Fatura Adeti")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Maliyet")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("TC No")
+                            </th>
+                            <th>Müşteri Durumu</th>
+                            <th>Durumu</th>
+                            <th></th>
+                            <th>  </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.title)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.taxNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.documentNumber)
+                                </td>
+                                <td>
+                                    @(item.amountService.ToString("#,##0.00")) TL
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tcNumber)
+                                </td>
+                                @{
+
+                                    var db = ((List<Customers>)ViewBag.customer);
+                                    Customers customersTaxStatus = null;
+                                    Customers customersTcStatus = null;
+                                    if (item.taxNumber != null)
+                                    {
+                                        customersTaxStatus = db.Where(s => s.taxNumber == item.taxNumber).FirstOrDefault();
+                                    }
+                                    else if (item.tcNumber != null)
+                                    {
+                                        customersTcStatus = db.Where(s => s.tcNumber == item.tcNumber).FirstOrDefault();
+                                    }
+
+
+                                }
+
+
+
+                                @if (customersTaxStatus != null || customersTcStatus != null)
+                                {
+                                    <td>
+                                        <input type="button" class="btn btn-success btn-sm" value="Müşteri Mevcut" />
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        @Html.ActionLink("Müşteri Ekle", "Create", "Customers", new { id = item.reconID }, new { @class = "btn btn-sm btn-warning" })
+                                    </td>
+
+                                }
+
+                                @if (item.status == 1 && item.sentStatus == false)
+                                {
+                                    <td>
+                                        <input type="button" class="btn btn-warning btn-sm" value="Gönderilemedi!">
+                                    </td>
+                                }
+                                else if (item.status == 1 && item.sentStatus == true)
+                                {
+                                    <td>
+                                        <input type="button" class="btn btn-primary btn-sm" value="Gönderildi">
+                                    </td>
+                                }
+                                else if (item.status == 2)
+                                {
+                                    <td>
+                                        <input type="button" class="btn btn-success btn-sm" value="Mutabık Olundu">
+                                    </td>
+                                }
+                                else if (item.status == 3)
+                                {
+                                    <td>
+                                        <input type="button" class="btn btn-danger btn-sm" value="Mutabık Olunmadı!">
+                                    </td>
+                                }
+                                else if (item.status == 6)
+                                {
+                                    <td>
+                                        <input type="button" class="btn btn-light btn-sm" value="5.000 TL Altı!">
+                                    </td>
+                                }
+                                else if (item.status == 0)
+                                {
+                                    <td>
+                                    </td>
+                                }
+                                <td>
+
+                                    @Html.ActionLink("Düzenle", "Edit", new { id = item.reconID }, new { @class = "btn btn-sm btn-warning mt-md-1" })
+                                    @Html.ActionLink("Detay", "Details", new { id = item.reconID }, new { @class = "btn btn-sm btn-purple mt-md-1" })
+                                    @Html.ActionLink("Sil", "Delete", new { id = item.reconID }, new { @class = "btn btn-sm btn-pink mt-md-1" })
+
+                                </td>
+
+                                <td>
+                                    @if (item.status != 2)
+                                    {
+                                        <span class="float-sm-right">
+                                            <input class="checkControl" type="checkbox" value="" id="@item.reconID">
+                                            <label class="" for="@item.reconID">
+
+                                            </label>
+                                        </span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <th>
+                                @Html.DisplayName("Ad Soyad/ Ünvan")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("Vergi No")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Fatura Adeti")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Maliyet")
+                            </th>
+
+                            <th>
+                                @Html.DisplayName("TC No")
+                            </th>
+                            <th>Müşteri Durumu</th>
+                            <th>Durumu</th>
+
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <input type="button" name="name" class="btn btn-lg btn-success float-md-right mt-md-40" id="selectAllSent" value="Seçilenleri Gönder" />
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+
+</div>
+
+<script type="text/javascript">
+
+
+
+
+
+    $("#selectAllButton").click(function () {
+
+        var value = this.getAttribute("value");
+
+        if (value == "Tümünü Sec") {
+
+            var checked = document.getElementsByClassName("checkControl");
+
+            $.each(checked, function (index, item) {
+
+                if (!(item.hasAttribute("checked"))) {
+
+                    item.setAttribute("checked", "");
+                }
+            });
+
+            this.setAttribute("value", "Tümünü Kaldır");
+        }
+        else if (value == "Tümünü Kaldır") {
+
+            var checked = document.getElementsByClassName("checkControl");
+
+            $.each(checked, function (index, item) {
+
+                if (item.hasAttribute("checked")) {
+
+                    item.removeAttribute("checked");
+                }
+            });
+
+            this.setAttribute("value", "Tümünü Sec");
+        }
+
+
+    });
+
+
+
+    $(".checkControl").click(function () {
+
+        if (this.hasAttribute("checked")) {
+
+            this.removeAttribute("checked");
+        }
+        else {
+
+            this.setAttribute("checked", "");
+        }
+
+    });
+
+
+    $("#selectAllSent").click(function () {
+
+        var sentID = [];
+
+        var checked = document.getElementsByClassName("checkControl");
+
+        $.each(checked, function (index, item) {
+
+            if (item.hasAttribute("checked")) {
+
+                var id = item.getAttribute("id");
+                sentID.push(id);
+            }
+        });
+
+
+
+        if (sentID.length != 0) {
+
+            swal({
+                title: "Emin misiniz?",
+                text: "<strong>Gönderim İşlemi Başlatılacak !!!</strong>",
+                type: "warning",
+                html: true,
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Başlat",
+                cancelButtonText: "Vazgeç",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+
+                    if (isConfirm) {
+
+                        var data = { 'data': sentID };
+
+                        $.ajax({
+
+                            url: '@Url.Action("Sent","Reconciliations")',
+                            type: 'POST',
+                            dataType: 'JSON',
+                            data: { 'data': JSON.stringify(data)},
+                            success: function (data) {
+
+                                if (data.res == 1) {
+
+                                    swal({
+                                        title: "İşlem Başarılı!",
+                                        text: "<strong>Gönderim İşlemi Yapıldı </strong>",
+                                        type: "success",
+                                        html: true,
+                                        timer: 3000
+                                    },
+                                        function () {
+                                            location.reload();
+                                        }
+                                    );
+                                }
+                                else if (data.res == 0) {
+
+                                    swal({
+                                        title: "İşlem Başarısız!",
+                                        text: "<strong>Gönderim İşlemi Yapılamadı </strong>",
+                                        type: "error",
+                                        html: true,
+                                        timer: 3000
+                                    },
+                                        function () {
+                                            location.reload();
+                                        }
+                                    );
+                                }
+
+                            }
+
+                        });
+
+
+
+                    }
+                    else {
+
+                        swal({
+                            title: "İptal",
+                            text: "<strong>İşlem İptal Edildi !</strong>",
+                            type: "error",
+                            html: true,
+                            timer: 3000
+                        });
+
+
+                    }
+                });
+        }
+        else {
+
+            swal({
+                title: "İşlem Başarısız !",
+                text: "<strong>Seçili İşlem Bulunmamaktadır !</strong>",
+                type: "error",
+                html: true,
+                timer: 3000
+            });
+        }
+
+    });
+
+</script>

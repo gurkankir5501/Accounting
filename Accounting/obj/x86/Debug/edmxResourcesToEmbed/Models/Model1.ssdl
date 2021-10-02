@@ -1,0 +1,1867 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="arisanerpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agreement">
+    <Key>
+      <PropertyRef Name="agreementID" />
+    </Key>
+    <Property Name="agreementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="month" Type="int" Nullable="false" />
+    <Property Name="agreementType" Type="bit" Nullable="false" />
+    <Property Name="buyingSales" Type="bit" Nullable="false" />
+    <Property Name="documentname" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Bills">
+    <Key>
+      <PropertyRef Name="billsID" />
+    </Key>
+    <Property Name="billsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="customerID" Type="int" Nullable="false" />
+    <Property Name="info" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="cityID" />
+    </Key>
+    <Property Name="cityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="countryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="countryID" />
+    </Key>
+    <Property Name="countryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customerID" />
+    </Key>
+    <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerCompanyName" Type="nvarchar(max)" />
+    <Property Name="customerGSM" Type="nvarchar" MaxLength="50" />
+    <Property Name="customerPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="customerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="customerAddress" Type="nvarchar(max)" />
+    <Property Name="customerDescription" Type="nvarchar(max)" />
+    <Property Name="cityID" Type="int" />
+    <Property Name="countryID" Type="int" />
+    <Property Name="taxNumber" Type="varchar(max)" />
+    <Property Name="tcNumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DepartmentForemans">
+    <Key>
+      <PropertyRef Name="depForeID" />
+    </Key>
+    <Property Name="depForeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="departmentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="departmentID" />
+    </Key>
+    <Property Name="departmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="departmentStatus" Type="bit" Nullable="false" />
+    <Property Name="departmentTypeID" Type="int" Nullable="false" />
+    <Property Name="hasSemiProduct" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DepartmentTypes">
+    <Key>
+      <PropertyRef Name="departmentTypeID" />
+    </Key>
+    <Property Name="departmentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departmentTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="documentID" />
+    </Key>
+    <Property Name="documentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="documentPath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="reconciliationsDocumentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeConsents">
+    <Key>
+      <PropertyRef Name="empConsentID" />
+    </Key>
+    <Property Name="empConsentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empID" Type="int" Nullable="false" />
+    <Property Name="consDescription" Type="nvarchar(max)" />
+    <Property Name="consStartDate" Type="datetime" Nullable="false" />
+    <Property Name="consFinishDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeRolePerformances">
+    <Key>
+      <PropertyRef Name="performanceID" />
+    </Key>
+    <Property Name="performanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empRoleID" Type="int" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="performance" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeRoles">
+    <Key>
+      <PropertyRef Name="empRoleID" />
+    </Key>
+    <Property Name="empRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empRoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="salary" Type="float" />
+    <Property Name="salaryFood" Type="float" />
+    <Property Name="salaryService" Type="float" />
+    <Property Name="salarySSK" Type="float" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="empID" />
+    </Key>
+    <Property Name="empID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="empStartDate" Type="datetime" />
+    <Property Name="empPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="empAddress" Type="nvarchar(max)" />
+    <Property Name="empStatus" Type="bit" Nullable="false" />
+    <Property Name="empQuitDate" Type="datetime" />
+    <Property Name="empRoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeSalaries">
+    <Key>
+      <PropertyRef Name="empSalaryID" />
+    </Key>
+    <Property Name="empSalaryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empID" Type="int" Nullable="false" />
+    <Property Name="salary" Type="float" Nullable="false" />
+    <Property Name="salaryDate" Type="datetime" Nullable="false" />
+    <Property Name="salaryService" Type="float" Nullable="false" />
+    <Property Name="salaryFood" Type="float" Nullable="false" />
+    <Property Name="salarySSK" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="expenseID" />
+    </Key>
+    <Property Name="expenseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="expenseName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="expensePrice" Type="float" Nullable="false" />
+    <Property Name="expenseDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MachineEmployees">
+    <Key>
+      <PropertyRef Name="machEmpID" />
+    </Key>
+    <Property Name="machEmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empID" Type="int" Nullable="false" />
+    <Property Name="machineID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MachineFaults">
+    <Key>
+      <PropertyRef Name="faultID" />
+    </Key>
+    <Property Name="faultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="machineID" Type="int" Nullable="false" />
+    <Property Name="faultContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="faultDate" Type="datetime" Nullable="false" />
+    <Property Name="faultCost" Type="float" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MachineMolds">
+    <Key>
+      <PropertyRef Name="machMoldID" />
+    </Key>
+    <Property Name="machMoldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moldID" Type="int" Nullable="false" />
+    <Property Name="machineID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Machines">
+    <Key>
+      <PropertyRef Name="machineID" />
+    </Key>
+    <Property Name="machineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="machineName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="machineStatus" Type="bit" Nullable="false" />
+    <Property Name="departmentID" Type="int" Nullable="false" />
+    <Property Name="isMold" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="materialID" />
+    </Key>
+    <Property Name="materialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="materialName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="materialUnitPrice" Type="float" Nullable="false" />
+    <Property Name="materialType" Type="int" Nullable="false" />
+    <Property Name="materialCurrencyType" Type="int" Nullable="false" />
+    <Property Name="materialOperationType" Type="int" Nullable="false" />
+    <Property Name="unitID" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MaterialStockRecords">
+    <Key>
+      <PropertyRef Name="mstockRecordID" />
+    </Key>
+    <Property Name="mstockRecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="materialStockID" Type="int" Nullable="false" />
+    <Property Name="stockRecordDate" Type="date" Nullable="false" />
+    <Property Name="stockRecordCount" Type="float" Nullable="false" />
+    <Property Name="stockRecordOperation" Type="bit" Nullable="false" />
+    <Property Name="worderID" Type="int" />
+  </EntityType>
+  <EntityType Name="MaterialStocks">
+    <Key>
+      <PropertyRef Name="materialStockID" />
+    </Key>
+    <Property Name="materialStockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="materialID" Type="int" Nullable="false" />
+    <Property Name="stockCount" Type="float" Nullable="false" />
+    <Property Name="warningAmount" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MoldCounts">
+    <Key>
+      <PropertyRef Name="moldCountID" />
+    </Key>
+    <Property Name="moldCountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moldID" Type="int" Nullable="false" />
+    <Property Name="moldNoID" Type="int" Nullable="false" />
+    <Property Name="moldCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MoldNumbers">
+    <Key>
+      <PropertyRef Name="moldNoID" />
+    </Key>
+    <Property Name="moldNoID" Type="int" Nullable="false" />
+    <Property Name="moldNo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Molds">
+    <Key>
+      <PropertyRef Name="moldID" />
+    </Key>
+    <Property Name="moldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="productID" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="orderID" />
+    </Key>
+    <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="orderQuantity" Type="int" />
+    <Property Name="orderDate" Type="datetime" Nullable="false" />
+    <Property Name="orderDeliveryDate" Type="datetime" />
+    <Property Name="orderStatus" Type="int" Nullable="false" />
+    <Property Name="customerID" Type="int" Nullable="false" />
+    <Property Name="orderDescription" Type="nvarchar(max)" />
+    <Property Name="orderCounter" Type="int" Nullable="false" />
+    <Property Name="orderConfirmation" Type="bit" />
+    <Property Name="orderType" Type="int" />
+    <Property Name="orderStage" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parcel">
+    <Key>
+      <PropertyRef Name="ParcelBarcodeID" />
+    </Key>
+    <Property Name="ParcelBarcodeID" Type="int" Nullable="false" />
+    <Property Name="workOrderId" Type="int" Nullable="false" />
+    <Property Name="productType" Type="bit" Nullable="false" />
+    <Property Name="moldNoId" Type="int" Nullable="false" />
+    <Property Name="modelNoId" Type="int" Nullable="false" />
+    <Property Name="orderID" Type="int" />
+    <Property Name="parcelType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductBox">
+    <Key>
+      <PropertyRef Name="ProductBoxID" />
+    </Key>
+    <Property Name="ProductBoxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="workOrderId" Type="int" Nullable="false" />
+    <Property Name="productType" Type="bit" Nullable="false" />
+    <Property Name="moldNoId" Type="int" Nullable="false" />
+    <Property Name="modelNoId" Type="int" Nullable="false" />
+    <Property Name="ParcelBarcodeID" Type="int" Nullable="false" />
+    <Property Name="ProductBoxBarcode" Type="int" Nullable="false" />
+    <Property Name="orderID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductEmpRoles">
+    <Key>
+      <PropertyRef Name="prodEmpID" />
+    </Key>
+    <Property Name="prodEmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empRoleID" Type="int" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="empsNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductMaterials">
+    <Key>
+      <PropertyRef Name="prodMatID" />
+    </Key>
+    <Property Name="prodMatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="materialID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductModels">
+    <Key>
+      <PropertyRef Name="modelNoID" />
+    </Key>
+    <Property Name="modelNoID" Type="int" Nullable="false" />
+    <Property Name="modelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="productID" />
+    </Key>
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="productName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="departmentTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductStockBarcodeOut">
+    <Key>
+      <PropertyRef Name="pstockBoutID" />
+    </Key>
+    <Property Name="pstockBoutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="barcode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductStockRecords">
+    <Key>
+      <PropertyRef Name="pstockRecordID" />
+    </Key>
+    <Property Name="pstockRecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productStockID" Type="int" Nullable="false" />
+    <Property Name="stockRecordDate" Type="date" Nullable="false" />
+    <Property Name="stockRecordCount" Type="int" Nullable="false" />
+    <Property Name="stockRecordOperation" Type="bit" Nullable="false" />
+    <Property Name="worderID" Type="int" />
+    <Property Name="barcode" Type="int" Nullable="false" />
+    <Property Name="modelNoID" Type="int" Nullable="false" />
+    <Property Name="moldNoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductStocks">
+    <Key>
+      <PropertyRef Name="productStockID" />
+    </Key>
+    <Property Name="productStockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="stockCount" Type="int" Nullable="false" />
+    <Property Name="stockType" Type="bit" Nullable="false" />
+    <Property Name="modelID" Type="int" Nullable="false" />
+    <Property Name="moldNoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeEmployees">
+    <Key>
+      <PropertyRef Name="rempID" />
+    </Key>
+    <Property Name="rempID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="recipeID" Type="int" Nullable="false" />
+    <Property Name="empRoleID" Type="int" Nullable="false" />
+    <Property Name="rempSalary" Type="float" Nullable="false" />
+    <Property Name="rempSalaryService" Type="float" Nullable="false" />
+    <Property Name="rempSalaryFood" Type="float" Nullable="false" />
+    <Property Name="rempSalarySSK" Type="float" Nullable="false" />
+    <Property Name="empsNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeExpenses">
+    <Key>
+      <PropertyRef Name="recipeExpID" />
+    </Key>
+    <Property Name="recipeExpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="recipeID" Type="int" Nullable="false" />
+    <Property Name="expenseName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="spendingAmount" Type="float" Nullable="false" />
+    <Property Name="advanceUnitPrice" Type="float" Nullable="false" />
+    <Property Name="expenseTotalPrice" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeMaterials">
+    <Key>
+      <PropertyRef Name="recipeMaterialID" />
+    </Key>
+    <Property Name="recipeMaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="recipeID" Type="int" Nullable="false" />
+    <Property Name="materialID" Type="int" Nullable="false" />
+    <Property Name="spendingAmount" Type="float" Nullable="false" />
+    <Property Name="advanceUnitPrice" Type="float" Nullable="false" />
+    <Property Name="formulaAmount" Type="float" Nullable="false" />
+    <Property Name="materialTotalPrice" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipes">
+    <Key>
+      <PropertyRef Name="recipeID" />
+    </Key>
+    <Property Name="recipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="recipeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="productionQuantity" Type="int" Nullable="false" />
+    <Property Name="productWeight" Type="float" Nullable="false" />
+    <Property Name="exchangeRate" Type="float" Nullable="false" />
+    <Property Name="recipeTotalPrice" Type="float" Nullable="false" />
+    <Property Name="recipeType" Type="bit" Nullable="false" />
+    <Property Name="singProdCost" Type="float" Nullable="false" />
+    <Property Name="materialsTotalPrice" Type="float" Nullable="false" />
+    <Property Name="expensesTotalPrice" Type="float" Nullable="false" />
+    <Property Name="boilCount" Type="float" Nullable="false" />
+    <Property Name="employeesTotalPrice" Type="float" Nullable="false" />
+    <Property Name="productType" Type="bit" Nullable="false" />
+    <Property Name="modelID" Type="int" Nullable="false" />
+    <Property Name="moldNoID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reconciliations">
+    <Key>
+      <PropertyRef Name="reconID" />
+    </Key>
+    <Property Name="reconID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" />
+    <Property Name="country" Type="varchar(max)" />
+    <Property Name="taxNumber" Type="varchar(max)" />
+    <Property Name="documentNumber" Type="int" Nullable="false" />
+    <Property Name="amountService" Type="float" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="tcNumber" Type="nvarchar(max)" />
+    <Property Name="representative" Type="nvarchar(max)" />
+    <Property Name="customer" Type="nvarchar(max)" />
+    <Property Name="status" Type="int" />
+    <Property Name="processStatus" Type="bit" />
+    <Property Name="agreementID" Type="int" Nullable="false" />
+    <Property Name="sentStatus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReconciliationsDocument">
+    <Key>
+      <PropertyRef Name="reconciliationsDocumentID" />
+    </Key>
+    <Property Name="reconciliationsDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="messages" Type="nvarchar(max)" />
+    <Property Name="setGetStatus" Type="bit" />
+    <Property Name="operationDate" Type="datetime" Nullable="false" />
+    <Property Name="reconID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subOrders">
+    <Key>
+      <PropertyRef Name="subOrderID" />
+    </Key>
+    <Property Name="subOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="modelID" Type="int" Nullable="false" />
+    <Property Name="modelNoID" Type="int" Nullable="false" />
+    <Property Name="orderQuantityNumber" Type="int" Nullable="false" />
+    <Property Name="productUnitPrice" Type="float" Nullable="false" />
+    <Property Name="recipeID" Type="int" Nullable="false" />
+    <Property Name="orderID" Type="int" Nullable="false" />
+    <Property Name="sumiProductCounter" Type="int" Nullable="false" />
+    <Property Name="subOrderStage" Type="int" Nullable="false" />
+    <Property Name="billsID" Type="int" />
+  </EntityType>
+  <EntityType Name="subWork">
+    <Key>
+      <PropertyRef Name="subWorderID" />
+    </Key>
+    <Property Name="subWorderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="worderStartDate" Type="datetime" />
+    <Property Name="worderFinishDate" Type="datetime" />
+    <Property Name="worderProgress" Type="int" Nullable="false" />
+    <Property Name="subOrderID" Type="int" Nullable="false" />
+    <Property Name="worderQuantity" Type="int" Nullable="false" />
+    <Property Name="semiProductCount" Type="int" Nullable="false" />
+    <Property Name="worderSemiProgress" Type="int" Nullable="false" />
+    <Property Name="worderID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="supplierID" />
+    </Key>
+    <Property Name="supplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="supplierCompanyName" Type="nvarchar(max)" />
+    <Property Name="supplierGSM" Type="nvarchar" MaxLength="50" />
+    <Property Name="supplierPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="supplierName" Type="nvarchar" MaxLength="50" />
+    <Property Name="supplierAddress" Type="nvarchar(max)" />
+    <Property Name="supplierDescription" Type="nvarchar(max)" />
+    <Property Name="cityID" Type="int" />
+    <Property Name="countryID" Type="int" />
+    <Property Name="taxNumber" Type="nvarchar(max)" />
+    <Property Name="tcNumber" Type="nvarchar(max)" />
+    <Property Name="supplierMailAddress" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="BillsID" />
+    </Key>
+    <Property Name="BillsID" Type="int" Nullable="false" />
+    <Property Name="creationDate" Type="varchar(max)" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Units">
+    <Key>
+      <PropertyRef Name="unitID" />
+    </Key>
+    <Property Name="unitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="userRoleID" />
+    </Key>
+    <Property Name="userRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userRoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userRoleID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WordepMachines">
+    <Key>
+      <PropertyRef Name="worMachID" />
+    </Key>
+    <Property Name="worMachID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="machineID" Type="int" Nullable="false" />
+    <Property Name="worDepID" Type="int" Nullable="false" />
+    <Property Name="worMachStatus" Type="bit" Nullable="false" />
+    <Property Name="worMachProgress" Type="int" Nullable="false" />
+    <Property Name="worMachStartDate" Type="datetime" />
+    <Property Name="worMachFinishDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WorDepMachMolds">
+    <Key>
+      <PropertyRef Name="machMoldID" />
+    </Key>
+    <Property Name="machMoldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moldCountID" Type="int" Nullable="false" />
+    <Property Name="worMachID" Type="int" Nullable="false" />
+    <Property Name="worMoldCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorderDepartments">
+    <Key>
+      <PropertyRef Name="worDepID" />
+    </Key>
+    <Property Name="worDepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="worderID" Type="int" Nullable="false" />
+    <Property Name="departmentID" Type="int" Nullable="false" />
+    <Property Name="worDepProgress" Type="int" Nullable="false" />
+    <Property Name="worDepStatus" Type="bit" Nullable="false" />
+    <Property Name="wordepStartDate" Type="datetime" />
+    <Property Name="wordepFinishDate" Type="datetime" />
+    <Property Name="subWorderID" Type="int" />
+  </EntityType>
+  <EntityType Name="WorderEmpDayOffs">
+    <Key>
+      <PropertyRef Name="worEmpDoffID" />
+    </Key>
+    <Property Name="worEmpDoffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="worMachEmpID" Type="int" Nullable="false" />
+    <Property Name="currentTime" Type="datetime" Nullable="false" />
+    <Property Name="dayOffDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="WorderRecipes">
+    <Key>
+      <PropertyRef Name="worRecipeID" />
+    </Key>
+    <Property Name="worRecipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="worderID" Type="int" Nullable="false" />
+    <Property Name="recipeID" Type="int" Nullable="false" />
+    <Property Name="subWorderID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkOrders">
+    <Key>
+      <PropertyRef Name="worderID" />
+    </Key>
+    <Property Name="worderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="worderContent" Type="nvarchar" MaxLength="50" />
+    <Property Name="worderStartDate" Type="datetime" />
+    <Property Name="worderFinishDate" Type="datetime" />
+    <Property Name="worderProgress" Type="int" Nullable="false" />
+    <Property Name="worderStatus" Type="int" Nullable="false" />
+    <Property Name="orderID" Type="int" Nullable="false" />
+    <Property Name="worderQuantity" Type="int" Nullable="false" />
+    <Property Name="semiProductCount" Type="int" Nullable="false" />
+    <Property Name="worderSemiProgress" Type="int" Nullable="false" />
+    <Property Name="worderDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="WorMachEmployees">
+    <Key>
+      <PropertyRef Name="worMachEmpID" />
+    </Key>
+    <Property Name="worMachEmpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empID" Type="int" Nullable="false" />
+    <Property Name="worMachID" Type="int" Nullable="false" />
+    <Property Name="employeeTotal" Type="int" Nullable="false" />
+    <Property Name="dayOffCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorMachEmpWorks">
+    <Key>
+      <PropertyRef Name="empWorkID" />
+    </Key>
+    <Property Name="empWorkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dailyProductCount" Type="int" Nullable="false" />
+    <Property Name="worMachEmpID" Type="int" Nullable="false" />
+    <Property Name="workDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bills_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerID" />
+      </Principal>
+      <Dependent Role="Bills">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryID" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="countryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="cityID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="countryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentForemans_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DepartmentForemans" Type="Self.DepartmentForemans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="departmentID" />
+      </Principal>
+      <Dependent Role="DepartmentForemans">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentForemans_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DepartmentForemans" Type="Self.DepartmentForemans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="DepartmentForemans">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_DepartmentTypes">
+    <End Role="DepartmentTypes" Type="Self.DepartmentTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentTypes">
+        <PropertyRef Name="departmentTypeID" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="departmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_ReconciliationsDocument">
+    <End Role="ReconciliationsDocument" Type="Self.ReconciliationsDocument" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReconciliationsDocument">
+        <PropertyRef Name="reconciliationsDocumentID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="reconciliationsDocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeConsents_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeConsents" Type="Self.EmployeeConsents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="empID" />
+      </Principal>
+      <Dependent Role="EmployeeConsents">
+        <PropertyRef Name="empID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRolePerformances_EmployeeRoles">
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeRolePerformances" Type="Self.EmployeeRolePerformances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeRoles">
+        <PropertyRef Name="empRoleID" />
+      </Principal>
+      <Dependent Role="EmployeeRolePerformances">
+        <PropertyRef Name="empRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRolePerformances_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeRolePerformances" Type="Self.EmployeeRolePerformances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="EmployeeRolePerformances">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_EmployeeRoles">
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeRoles">
+        <PropertyRef Name="empRoleID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="empRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeSalaries_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeSalaries" Type="Self.EmployeeSalaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="empID" />
+      </Principal>
+      <Dependent Role="EmployeeSalaries">
+        <PropertyRef Name="empID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineEmployees_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MachineEmployees" Type="Self.MachineEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="empID" />
+      </Principal>
+      <Dependent Role="MachineEmployees">
+        <PropertyRef Name="empID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineEmployees_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MachineEmployees" Type="Self.MachineEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="machineID" />
+      </Principal>
+      <Dependent Role="MachineEmployees">
+        <PropertyRef Name="machineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineFaults_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MachineFaults" Type="Self.MachineFaults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="machineID" />
+      </Principal>
+      <Dependent Role="MachineFaults">
+        <PropertyRef Name="machineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineMolds_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MachineMolds" Type="Self.MachineMolds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="machineID" />
+      </Principal>
+      <Dependent Role="MachineMolds">
+        <PropertyRef Name="machineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MachineMolds_Molds">
+    <End Role="Molds" Type="Self.Molds" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MachineMolds" Type="Self.MachineMolds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Molds">
+        <PropertyRef Name="moldID" />
+      </Principal>
+      <Dependent Role="MachineMolds">
+        <PropertyRef Name="moldID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Machines_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Machines" Type="Self.Machines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="departmentID" />
+      </Principal>
+      <Dependent Role="Machines">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_Units">
+    <End Role="Units" Type="Self.Units" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="unitID" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="unitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialStockRecords_MaterialStocks">
+    <End Role="MaterialStocks" Type="Self.MaterialStocks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialStockRecords" Type="Self.MaterialStockRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialStocks">
+        <PropertyRef Name="materialStockID" />
+      </Principal>
+      <Dependent Role="MaterialStockRecords">
+        <PropertyRef Name="materialStockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialStockRecords_WorkOrders">
+    <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialStockRecords" Type="Self.MaterialStockRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkOrders">
+        <PropertyRef Name="worderID" />
+      </Principal>
+      <Dependent Role="MaterialStockRecords">
+        <PropertyRef Name="worderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialStocks_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MaterialStocks" Type="Self.MaterialStocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="materialID" />
+      </Principal>
+      <Dependent Role="MaterialStocks">
+        <PropertyRef Name="materialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MoldCounts_MoldNumbers">
+    <End Role="MoldNumbers" Type="Self.MoldNumbers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MoldCounts" Type="Self.MoldCounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoldNumbers">
+        <PropertyRef Name="moldNoID" />
+      </Principal>
+      <Dependent Role="MoldCounts">
+        <PropertyRef Name="moldNoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MoldCounts_Molds">
+    <End Role="Molds" Type="Self.Molds" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MoldCounts" Type="Self.MoldCounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Molds">
+        <PropertyRef Name="moldID" />
+      </Principal>
+      <Dependent Role="MoldCounts">
+        <PropertyRef Name="moldID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Molds_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Molds" Type="Self.Molds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Molds">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductEmpRoles_EmployeeRoles">
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductEmpRoles" Type="Self.ProductEmpRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeRoles">
+        <PropertyRef Name="empRoleID" />
+      </Principal>
+      <Dependent Role="ProductEmpRoles">
+        <PropertyRef Name="empRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductEmpRoles_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductEmpRoles" Type="Self.ProductEmpRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="ProductEmpRoles">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductMaterials_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductMaterials" Type="Self.ProductMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="materialID" />
+      </Principal>
+      <Dependent Role="ProductMaterials">
+        <PropertyRef Name="materialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductMaterials_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductMaterials" Type="Self.ProductMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="ProductMaterials">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductModels_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductModels" Type="Self.ProductModels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="ProductModels">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_DepartmentTypes">
+    <End Role="DepartmentTypes" Type="Self.DepartmentTypes" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentTypes">
+        <PropertyRef Name="departmentTypeID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="departmentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductStockRecords_MoldNumbers">
+    <End Role="MoldNumbers" Type="Self.MoldNumbers" Multiplicity="1" />
+    <End Role="ProductStockRecords" Type="Self.ProductStockRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoldNumbers">
+        <PropertyRef Name="moldNoID" />
+      </Principal>
+      <Dependent Role="ProductStockRecords">
+        <PropertyRef Name="moldNoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductStockRecords_ProductModels">
+    <End Role="ProductModels" Type="Self.ProductModels" Multiplicity="1" />
+    <End Role="ProductStockRecords" Type="Self.ProductStockRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductModels">
+        <PropertyRef Name="modelNoID" />
+      </Principal>
+      <Dependent Role="ProductStockRecords">
+        <PropertyRef Name="modelNoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductStockRecords_ProductStocks">
+    <End Role="ProductStocks" Type="Self.ProductStocks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductStockRecords" Type="Self.ProductStockRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductStocks">
+        <PropertyRef Name="productStockID" />
+      </Principal>
+      <Dependent Role="ProductStockRecords">
+        <PropertyRef Name="productStockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductStockRecords_subWork">
+    <End Role="subWork" Type="Self.subWork" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductStockRecords" Type="Self.ProductStockRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subWork">
+        <PropertyRef Name="subWorderID" />
+      </Principal>
+      <Dependent Role="ProductStockRecords">
+        <PropertyRef Name="worderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductStocks_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductStocks" Type="Self.ProductStocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="ProductStocks">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeEmployees_EmployeeRoles">
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RecipeEmployees" Type="Self.RecipeEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeRoles">
+        <PropertyRef Name="empRoleID" />
+      </Principal>
+      <Dependent Role="RecipeEmployees">
+        <PropertyRef Name="empRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeEmployees_Recipes">
+    <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RecipeEmployees" Type="Self.RecipeEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipes">
+        <PropertyRef Name="recipeID" />
+      </Principal>
+      <Dependent Role="RecipeEmployees">
+        <PropertyRef Name="recipeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeExpenses_Recipes">
+    <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RecipeExpenses" Type="Self.RecipeExpenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipes">
+        <PropertyRef Name="recipeID" />
+      </Principal>
+      <Dependent Role="RecipeExpenses">
+        <PropertyRef Name="recipeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeMaterials_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RecipeMaterials" Type="Self.RecipeMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="materialID" />
+      </Principal>
+      <Dependent Role="RecipeMaterials">
+        <PropertyRef Name="materialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeMaterials_Recipes">
+    <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RecipeMaterials" Type="Self.RecipeMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipes">
+        <PropertyRef Name="recipeID" />
+      </Principal>
+      <Dependent Role="RecipeMaterials">
+        <PropertyRef Name="recipeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recipes_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="Recipes">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reconciliations_Agreement">
+    <End Role="Agreement" Type="Self.Agreement" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reconciliations" Type="Self.Reconciliations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agreement">
+        <PropertyRef Name="agreementID" />
+      </Principal>
+      <Dependent Role="Reconciliations">
+        <PropertyRef Name="agreementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReconciliationsDocument_Reconciliations">
+    <End Role="Reconciliations" Type="Self.Reconciliations" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ReconciliationsDocument" Type="Self.ReconciliationsDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reconciliations">
+        <PropertyRef Name="reconID" />
+      </Principal>
+      <Dependent Role="ReconciliationsDocument">
+        <PropertyRef Name="reconID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subOrders_MoldNumbers">
+    <End Role="MoldNumbers" Type="Self.MoldNumbers" Multiplicity="1" />
+    <End Role="subOrders" Type="Self.subOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoldNumbers">
+        <PropertyRef Name="moldNoID" />
+      </Principal>
+      <Dependent Role="subOrders">
+        <PropertyRef Name="modelNoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subOrders_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="subOrders" Type="Self.subOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="orderID" />
+      </Principal>
+      <Dependent Role="subOrders">
+        <PropertyRef Name="orderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subOrders_ProductModels">
+    <End Role="ProductModels" Type="Self.ProductModels" Multiplicity="1" />
+    <End Role="subOrders" Type="Self.subOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductModels">
+        <PropertyRef Name="modelNoID" />
+      </Principal>
+      <Dependent Role="subOrders">
+        <PropertyRef Name="modelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subOrders_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="subOrders" Type="Self.subOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="subOrders">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subWork_Orders">
+    <End Role="subOrders" Type="Self.subOrders" Multiplicity="1" />
+    <End Role="subWork" Type="Self.subWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subOrders">
+        <PropertyRef Name="subOrderID" />
+      </Principal>
+      <Dependent Role="subWork">
+        <PropertyRef Name="subOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subWork_WorkOrders">
+    <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="subWork" Type="Self.subWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkOrders">
+        <PropertyRef Name="worderID" />
+      </Principal>
+      <Dependent Role="subWork">
+        <PropertyRef Name="worderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRoles">
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRoles">
+        <PropertyRef Name="userRoleID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="userRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WordepMachines_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WordepMachines" Type="Self.WordepMachines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="machineID" />
+      </Principal>
+      <Dependent Role="WordepMachines">
+        <PropertyRef Name="machineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WordepMachines_WorderDepartments">
+    <End Role="WorderDepartments" Type="Self.WorderDepartments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WordepMachines" Type="Self.WordepMachines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorderDepartments">
+        <PropertyRef Name="worDepID" />
+      </Principal>
+      <Dependent Role="WordepMachines">
+        <PropertyRef Name="worDepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorDepMachMolds_MoldCounts">
+    <End Role="MoldCounts" Type="Self.MoldCounts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorDepMachMolds" Type="Self.WorDepMachMolds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MoldCounts">
+        <PropertyRef Name="moldCountID" />
+      </Principal>
+      <Dependent Role="WorDepMachMolds">
+        <PropertyRef Name="moldCountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorDepMachMolds_WorDepMachines">
+    <End Role="WordepMachines" Type="Self.WordepMachines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorDepMachMolds" Type="Self.WorDepMachMolds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WordepMachines">
+        <PropertyRef Name="worMachID" />
+      </Principal>
+      <Dependent Role="WorDepMachMolds">
+        <PropertyRef Name="worMachID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderDepartments_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="WorderDepartments" Type="Self.WorderDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="departmentID" />
+      </Principal>
+      <Dependent Role="WorderDepartments">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderDepartments_subWork">
+    <End Role="subWork" Type="Self.subWork" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorderDepartments" Type="Self.WorderDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subWork">
+        <PropertyRef Name="subWorderID" />
+      </Principal>
+      <Dependent Role="WorderDepartments">
+        <PropertyRef Name="subWorderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderDepartments_WorkOrders">
+    <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="1" />
+    <End Role="WorderDepartments" Type="Self.WorderDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkOrders">
+        <PropertyRef Name="worderID" />
+      </Principal>
+      <Dependent Role="WorderDepartments">
+        <PropertyRef Name="worderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderEmpDayOffs_WorMachEmployees">
+    <End Role="WorMachEmployees" Type="Self.WorMachEmployees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorderEmpDayOffs" Type="Self.WorderEmpDayOffs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorMachEmployees">
+        <PropertyRef Name="worMachEmpID" />
+      </Principal>
+      <Dependent Role="WorderEmpDayOffs">
+        <PropertyRef Name="worMachEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderRecipes_Recipes">
+    <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorderRecipes" Type="Self.WorderRecipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipes">
+        <PropertyRef Name="recipeID" />
+      </Principal>
+      <Dependent Role="WorderRecipes">
+        <PropertyRef Name="recipeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderRecipes_subWork">
+    <End Role="subWork" Type="Self.subWork" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorderRecipes" Type="Self.WorderRecipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subWork">
+        <PropertyRef Name="subWorderID" />
+      </Principal>
+      <Dependent Role="WorderRecipes">
+        <PropertyRef Name="subWorderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorderRecipes_WorkOrders">
+    <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="1" />
+    <End Role="WorderRecipes" Type="Self.WorderRecipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkOrders">
+        <PropertyRef Name="worderID" />
+      </Principal>
+      <Dependent Role="WorderRecipes">
+        <PropertyRef Name="worderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkOrders_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorkOrders" Type="Self.WorkOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="orderID" />
+      </Principal>
+      <Dependent Role="WorkOrders">
+        <PropertyRef Name="orderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorMachEmployees_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorMachEmployees" Type="Self.WorMachEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="empID" />
+      </Principal>
+      <Dependent Role="WorMachEmployees">
+        <PropertyRef Name="empID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorMachEmployees_WorDepMachines">
+    <End Role="WordepMachines" Type="Self.WordepMachines" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorMachEmployees" Type="Self.WorMachEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WordepMachines">
+        <PropertyRef Name="worMachID" />
+      </Principal>
+      <Dependent Role="WorMachEmployees">
+        <PropertyRef Name="worMachID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorMachEmpWorks_WorMachEmployees">
+    <End Role="WorMachEmployees" Type="Self.WorMachEmployees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WorMachEmpWorks" Type="Self.WorMachEmpWorks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorMachEmployees">
+        <PropertyRef Name="worMachEmpID" />
+      </Principal>
+      <Dependent Role="WorMachEmpWorks">
+        <PropertyRef Name="worMachEmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="arisanerpModelStoreContainer">
+    <EntitySet Name="Agreement" EntityType="Self.Agreement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentForemans" EntityType="Self.DepartmentForemans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentTypes" EntityType="Self.DepartmentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeConsents" EntityType="Self.EmployeeConsents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeRolePerformances" EntityType="Self.EmployeeRolePerformances" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeRoles" EntityType="Self.EmployeeRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeSalaries" EntityType="Self.EmployeeSalaries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expenses" EntityType="Self.Expenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MachineEmployees" EntityType="Self.MachineEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MachineFaults" EntityType="Self.MachineFaults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MachineMolds" EntityType="Self.MachineMolds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialStockRecords" EntityType="Self.MaterialStockRecords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialStocks" EntityType="Self.MaterialStocks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MoldCounts" EntityType="Self.MoldCounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MoldNumbers" EntityType="Self.MoldNumbers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Molds" EntityType="Self.Molds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parcel" EntityType="Self.Parcel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductBox" EntityType="Self.ProductBox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductEmpRoles" EntityType="Self.ProductEmpRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductMaterials" EntityType="Self.ProductMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductModels" EntityType="Self.ProductModels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductStockBarcodeOut" EntityType="Self.ProductStockBarcodeOut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductStockRecords" EntityType="Self.ProductStockRecords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductStocks" EntityType="Self.ProductStocks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeEmployees" EntityType="Self.RecipeEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeExpenses" EntityType="Self.RecipeExpenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeMaterials" EntityType="Self.RecipeMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reconciliations" EntityType="Self.Reconciliations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReconciliationsDocument" EntityType="Self.ReconciliationsDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subOrders" EntityType="Self.subOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subWork" EntityType="Self.subWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WordepMachines" EntityType="Self.WordepMachines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorDepMachMolds" EntityType="Self.WorDepMachMolds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorderDepartments" EntityType="Self.WorderDepartments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorderEmpDayOffs" EntityType="Self.WorderEmpDayOffs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorderRecipes" EntityType="Self.WorderRecipes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkOrders" EntityType="Self.WorkOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorMachEmployees" EntityType="Self.WorMachEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorMachEmpWorks" EntityType="Self.WorMachEmpWorks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bills_Customers" Association="Self.FK_Bills_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Bills" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Cities" Association="Self.FK_Customers_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Countries" Association="Self.FK_Customers_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentForemans_Departments" Association="Self.FK_DepartmentForemans_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="DepartmentForemans" EntitySet="DepartmentForemans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentForemans_Users" Association="Self.FK_DepartmentForemans_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="DepartmentForemans" EntitySet="DepartmentForemans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_DepartmentTypes" Association="Self.FK_Departments_DepartmentTypes">
+      <End Role="DepartmentTypes" EntitySet="DepartmentTypes" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_ReconciliationsDocument" Association="Self.FK_Document_ReconciliationsDocument">
+      <End Role="ReconciliationsDocument" EntitySet="ReconciliationsDocument" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeConsents_Employees" Association="Self.FK_EmployeeConsents_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeConsents" EntitySet="EmployeeConsents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRolePerformances_EmployeeRoles" Association="Self.FK_EmployeeRolePerformances_EmployeeRoles">
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+      <End Role="EmployeeRolePerformances" EntitySet="EmployeeRolePerformances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRolePerformances_Products" Association="Self.FK_EmployeeRolePerformances_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="EmployeeRolePerformances" EntitySet="EmployeeRolePerformances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_EmployeeRoles" Association="Self.FK_Employees_EmployeeRoles">
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeSalaries_Employees" Association="Self.FK_EmployeeSalaries_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeSalaries" EntitySet="EmployeeSalaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineEmployees_Employees" Association="Self.FK_MachineEmployees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="MachineEmployees" EntitySet="MachineEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineEmployees_Machines" Association="Self.FK_MachineEmployees_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="MachineEmployees" EntitySet="MachineEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineFaults_Machines" Association="Self.FK_MachineFaults_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="MachineFaults" EntitySet="MachineFaults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineMolds_Machines" Association="Self.FK_MachineMolds_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="MachineMolds" EntitySet="MachineMolds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MachineMolds_Molds" Association="Self.FK_MachineMolds_Molds">
+      <End Role="Molds" EntitySet="Molds" />
+      <End Role="MachineMolds" EntitySet="MachineMolds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Machines_Departments" Association="Self.FK_Machines_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Machines" EntitySet="Machines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_Units" Association="Self.FK_Materials_Units">
+      <End Role="Units" EntitySet="Units" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialStockRecords_MaterialStocks" Association="Self.FK_MaterialStockRecords_MaterialStocks">
+      <End Role="MaterialStocks" EntitySet="MaterialStocks" />
+      <End Role="MaterialStockRecords" EntitySet="MaterialStockRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialStockRecords_WorkOrders" Association="Self.FK_MaterialStockRecords_WorkOrders">
+      <End Role="WorkOrders" EntitySet="WorkOrders" />
+      <End Role="MaterialStockRecords" EntitySet="MaterialStockRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialStocks_Materials" Association="Self.FK_MaterialStocks_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="MaterialStocks" EntitySet="MaterialStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MoldCounts_MoldNumbers" Association="Self.FK_MoldCounts_MoldNumbers">
+      <End Role="MoldNumbers" EntitySet="MoldNumbers" />
+      <End Role="MoldCounts" EntitySet="MoldCounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MoldCounts_Molds" Association="Self.FK_MoldCounts_Molds">
+      <End Role="Molds" EntitySet="Molds" />
+      <End Role="MoldCounts" EntitySet="MoldCounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Molds_Products" Association="Self.FK_Molds_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Molds" EntitySet="Molds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductEmpRoles_EmployeeRoles" Association="Self.FK_ProductEmpRoles_EmployeeRoles">
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+      <End Role="ProductEmpRoles" EntitySet="ProductEmpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductEmpRoles_Products" Association="Self.FK_ProductEmpRoles_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductEmpRoles" EntitySet="ProductEmpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductMaterials_Materials" Association="Self.FK_ProductMaterials_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="ProductMaterials" EntitySet="ProductMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductMaterials_Products" Association="Self.FK_ProductMaterials_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductMaterials" EntitySet="ProductMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductModels_Products" Association="Self.FK_ProductModels_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductModels" EntitySet="ProductModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_DepartmentTypes" Association="Self.FK_Products_DepartmentTypes">
+      <End Role="DepartmentTypes" EntitySet="DepartmentTypes" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductStockRecords_MoldNumbers" Association="Self.FK_ProductStockRecords_MoldNumbers">
+      <End Role="MoldNumbers" EntitySet="MoldNumbers" />
+      <End Role="ProductStockRecords" EntitySet="ProductStockRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductStockRecords_ProductModels" Association="Self.FK_ProductStockRecords_ProductModels">
+      <End Role="ProductModels" EntitySet="ProductModels" />
+      <End Role="ProductStockRecords" EntitySet="ProductStockRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductStockRecords_ProductStocks" Association="Self.FK_ProductStockRecords_ProductStocks">
+      <End Role="ProductStocks" EntitySet="ProductStocks" />
+      <End Role="ProductStockRecords" EntitySet="ProductStockRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductStockRecords_subWork" Association="Self.FK_ProductStockRecords_subWork">
+      <End Role="subWork" EntitySet="subWork" />
+      <End Role="ProductStockRecords" EntitySet="ProductStockRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductStocks_Products" Association="Self.FK_ProductStocks_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductStocks" EntitySet="ProductStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeEmployees_EmployeeRoles" Association="Self.FK_RecipeEmployees_EmployeeRoles">
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+      <End Role="RecipeEmployees" EntitySet="RecipeEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeEmployees_Recipes" Association="Self.FK_RecipeEmployees_Recipes">
+      <End Role="Recipes" EntitySet="Recipes" />
+      <End Role="RecipeEmployees" EntitySet="RecipeEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeExpenses_Recipes" Association="Self.FK_RecipeExpenses_Recipes">
+      <End Role="Recipes" EntitySet="Recipes" />
+      <End Role="RecipeExpenses" EntitySet="RecipeExpenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeMaterials_Materials" Association="Self.FK_RecipeMaterials_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="RecipeMaterials" EntitySet="RecipeMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeMaterials_Recipes" Association="Self.FK_RecipeMaterials_Recipes">
+      <End Role="Recipes" EntitySet="Recipes" />
+      <End Role="RecipeMaterials" EntitySet="RecipeMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recipes_Products" Association="Self.FK_Recipes_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Recipes" EntitySet="Recipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reconciliations_Agreement" Association="Self.FK_Reconciliations_Agreement">
+      <End Role="Agreement" EntitySet="Agreement" />
+      <End Role="Reconciliations" EntitySet="Reconciliations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReconciliationsDocument_Reconciliations" Association="Self.FK_ReconciliationsDocument_Reconciliations">
+      <End Role="Reconciliations" EntitySet="Reconciliations" />
+      <End Role="ReconciliationsDocument" EntitySet="ReconciliationsDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subOrders_MoldNumbers" Association="Self.FK_subOrders_MoldNumbers">
+      <End Role="MoldNumbers" EntitySet="MoldNumbers" />
+      <End Role="subOrders" EntitySet="subOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subOrders_Orders" Association="Self.FK_subOrders_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="subOrders" EntitySet="subOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subOrders_ProductModels" Association="Self.FK_subOrders_ProductModels">
+      <End Role="ProductModels" EntitySet="ProductModels" />
+      <End Role="subOrders" EntitySet="subOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subOrders_Products" Association="Self.FK_subOrders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="subOrders" EntitySet="subOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subWork_Orders" Association="Self.FK_subWork_Orders">
+      <End Role="subOrders" EntitySet="subOrders" />
+      <End Role="subWork" EntitySet="subWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subWork_WorkOrders" Association="Self.FK_subWork_WorkOrders">
+      <End Role="WorkOrders" EntitySet="WorkOrders" />
+      <End Role="subWork" EntitySet="subWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRoles" Association="Self.FK_Users_UserRoles">
+      <End Role="UserRoles" EntitySet="UserRoles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WordepMachines_Machines" Association="Self.FK_WordepMachines_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="WordepMachines" EntitySet="WordepMachines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WordepMachines_WorderDepartments" Association="Self.FK_WordepMachines_WorderDepartments">
+      <End Role="WorderDepartments" EntitySet="WorderDepartments" />
+      <End Role="WordepMachines" EntitySet="WordepMachines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorDepMachMolds_MoldCounts" Association="Self.FK_WorDepMachMolds_MoldCounts">
+      <End Role="MoldCounts" EntitySet="MoldCounts" />
+      <End Role="WorDepMachMolds" EntitySet="WorDepMachMolds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorDepMachMolds_WorDepMachines" Association="Self.FK_WorDepMachMolds_WorDepMachines">
+      <End Role="WordepMachines" EntitySet="WordepMachines" />
+      <End Role="WorDepMachMolds" EntitySet="WorDepMachMolds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderDepartments_Departments" Association="Self.FK_WorderDepartments_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="WorderDepartments" EntitySet="WorderDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderDepartments_subWork" Association="Self.FK_WorderDepartments_subWork">
+      <End Role="subWork" EntitySet="subWork" />
+      <End Role="WorderDepartments" EntitySet="WorderDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderDepartments_WorkOrders" Association="Self.FK_WorderDepartments_WorkOrders">
+      <End Role="WorkOrders" EntitySet="WorkOrders" />
+      <End Role="WorderDepartments" EntitySet="WorderDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderEmpDayOffs_WorMachEmployees" Association="Self.FK_WorderEmpDayOffs_WorMachEmployees">
+      <End Role="WorMachEmployees" EntitySet="WorMachEmployees" />
+      <End Role="WorderEmpDayOffs" EntitySet="WorderEmpDayOffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderRecipes_Recipes" Association="Self.FK_WorderRecipes_Recipes">
+      <End Role="Recipes" EntitySet="Recipes" />
+      <End Role="WorderRecipes" EntitySet="WorderRecipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderRecipes_subWork" Association="Self.FK_WorderRecipes_subWork">
+      <End Role="subWork" EntitySet="subWork" />
+      <End Role="WorderRecipes" EntitySet="WorderRecipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorderRecipes_WorkOrders" Association="Self.FK_WorderRecipes_WorkOrders">
+      <End Role="WorkOrders" EntitySet="WorkOrders" />
+      <End Role="WorderRecipes" EntitySet="WorderRecipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkOrders_Orders" Association="Self.FK_WorkOrders_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="WorkOrders" EntitySet="WorkOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorMachEmployees_Employees" Association="Self.FK_WorMachEmployees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="WorMachEmployees" EntitySet="WorMachEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorMachEmployees_WorDepMachines" Association="Self.FK_WorMachEmployees_WorDepMachines">
+      <End Role="WordepMachines" EntitySet="WordepMachines" />
+      <End Role="WorMachEmployees" EntitySet="WorMachEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorMachEmpWorks_WorMachEmployees" Association="Self.FK_WorMachEmpWorks_WorMachEmployees">
+      <End Role="WorMachEmployees" EntitySet="WorMachEmployees" />
+      <End Role="WorMachEmpWorks" EntitySet="WorMachEmpWorks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

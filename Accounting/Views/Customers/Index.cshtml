@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Accounting.Models.Customers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="box">
+        <div class="box-header with-border">
+
+            <h2 class="box-title">Müşteriler</h2>
+            <p class="float-md-right">
+                @Html.ActionLink("Ekle", "Create", null, new { @class = "btn btn-primary" })
+            </p>
+        </div>
+
+        <!-- /.box-header -->
+        <div class="box-body">
+
+
+            <div class="table-responsive">
+                <table id="example6" class="table table-bordered table-hover table-responsive-md table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Ad Soyad/Ünvan")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Telefon Numarası")
+                            </th>
+                         
+                           
+                         
+                            <th>
+                                @Html.DisplayName("E-Mail")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Vergi No")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Tc No")
+                            </th>
+                          
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.customerCompanyName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.customerGSM)
+                                </td>
+                          
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.customerDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.taxNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tcNumber)
+                                </td>
+                             
+                                <td>
+
+                                    @Html.ActionLink("Düzenle", "Edit", new { id = item.customerID }, new { @class = "btn btn-sm btn-warning mt-md-1" })
+                                   
+                                    @Html.ActionLink("Sil", "Delete", new { id = item.customerID }, new { @class = "btn btn-sm btn-pink mt-md-1" })
+
+                                </td>
+
+                               
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <th>
+                                @Html.DisplayName("Ad Soyad/Ünvan")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Telefon Numarası")
+                            </th>
+
+
+
+                            <th>
+                                @Html.DisplayName("E-Mail")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Vergi No")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Tc No")
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+           
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+
+</div>

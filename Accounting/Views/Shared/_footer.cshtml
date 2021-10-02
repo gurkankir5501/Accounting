@@ -1,0 +1,84 @@
+﻿
+<!-- ************* JavaScript Dosyaları  ****************   -->
+
+ <!-- jQuery 3 -->
+<script src="~/Content/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+
+<!-- popper -->
+<script src="~/Content/assets/vendor_components/popper/dist/popper.min.js"></script>
+
+<!-- Bootstrap 4.0-->
+<script src="~/Content/assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<!-- Slimscroll -->
+<script src="~/Content/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+<!-- FastClick -->
+<script src="~/Content/assets/vendor_components/fastclick/lib/fastclick.js"></script>
+
+
+
+
+<!-- webticker -->
+<script src="~/Content/assets/vendor_components/Web-Ticker-master/jquery.webticker.min.js"></script>
+
+<!-- This is data table -->
+<script src="~/Content/assets/vendor_components/datatable/datatables.min.js"></script>
+
+<!-- Sparkline -->
+<script src="~/Content/assets/vendor_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+
+<!-- SoftMaterial admin App -->
+<script src="~/Scripts/js/template.js"></script>
+
+
+<!-- SoftMaterial admin for demo purposes -->
+<script src="~/Scripts/js/demo.js"></script>
+<!-- SoftMaterial admin for Data Table -->
+<script src="~/Scripts/js/pages/data-table.js"></script>
+
+<!--SweetAlert JS-->
+
+<script src="~/Scripts/js/pages/dashboard.js"></script>
+
+<script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+
+             if ('@ViewBag.res' == 1) {
+
+                 swal("İşlem Başarısız", "İşlem Gerçekleştirilimedi!", "error");
+
+             }
+             else if ('@ViewBag.res' == 2) {
+
+                 swal("İşlem Başarısız", "Dosya Yükleyiniz!", "warning");
+
+             }
+             else if ('@ViewBag.res' == 3) {
+
+                 swal("İşlem Başarısız", "Excel Dosyası Yükleyiniz!", "warning");
+
+             }
+             else if ('@ViewBag.res' == 4) {
+
+                 swal("İşlem Başarılı", "Mutabakat Oluşturuldu", "success");
+
+             }
+             else if ('@ViewBag.res' == 5) {
+
+                swal("Mutabakat Oluşturulamadı!", "Sistem de Aynı İsimle Kayıtlı Excel Dosyası Bulunmaktadır Veya Geçersiz Excel Dosyası girişi yaptınız!!!", "error");
+
+             }
+             else if ('@ViewBag.res' == 6) {
+
+                swal("İşlem Başarısız!", "Boşlukları Doldurunuz!", "error");
+
+             }
+        });
+
+
+
+</script>

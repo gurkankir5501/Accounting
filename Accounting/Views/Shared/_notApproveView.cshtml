@@ -1,0 +1,25 @@
+﻿
+<form action="@Url.Action("notApproveSent","ReconciliationView")" method="post" enctype="multipart/form-data">
+
+
+    <div>
+        <input type="hidden" name="reconID" value="@ViewBag.reconID" />
+        <div class="form-group">
+            
+            <textarea type="text" class="form-control" rows="10"  name="messages" placeholder="Mesajınız" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="file" name="files" class="form-control btn btn-outline-info" id="file1" multiple  />
+        </div>
+
+        <p>Dosyalarınızı excel , resim veya pdf formatında yükleyiniz !!!</p>
+    </div> 
+
+
+    <hr />
+    <input type="button" class="btn btn-bold btn-pure btn-secondary" data-dismiss="modal" value="Kapat" />
+    <input type="submit" class="btn btn-bold btn-pure btn-primary float-right" value="Gönder" />
+
+
+</form>

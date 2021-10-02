@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Accounting.Models.Agreement>
+
+@{
+    ViewBag.Title = "Mutabakatlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String month = "";
+}
+
+
+<div class="col-12">
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="float-md-left">
+                <h2 class="box-title">Mutabakat İşlemleri</h2><br />
+                @if (ViewBag.buyingSales)
+                {
+                    @Html.ActionLink("Geri Dön", "Buying", "Home", null, new { @class = "btn btn-purple btn-sm" })
+                }
+                else
+                {
+                    @Html.ActionLink("Geri Dön", "Sales", "Home", null, new { @class = "btn btn-purple btn-sm" })
+                }
+            </div>
+            <p class="float-md-right">
+                @Html.ActionLink("Ekle", "Create", new { type = ViewBag.type, buyingSales = ViewBag.buyingSales }, new { @class = "btn btn-primary" })
+            </p>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="example6" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Ay")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Yıl")
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @switch (item.month)
+                                    {
+                                        case 1:
+
+                                            month = "OCAK";
+                                            break;
+                                        case 2:
+                                            month = "ŞUBAT";
+                                            break;
+                                        case 3:
+                                            month = "MART";
+                                            break;
+                                        case 4:
+                                            month = "NİSAN";
+                                            break;
+                                        case 5:
+                                            month = "MAYIS";
+                                            break;
+                                        case 6:
+                                            month = "HAZİRAN";
+                                            break;
+                                        case 7:
+                                            month = "TEMMUZ";
+                                            break;
+                                        case 8:
+                                            month = "AĞUSTOS";
+                                            break;
+                                        case 9:
+                                            month = "EYLÜL";
+                                            break;
+                                        case 10:
+                                            month = "EKİM";
+                                            break;
+                                        case 11:
+                                            month = "KASIM";
+                                            break;
+                                        case 12:
+                                            month = "ARALIK";
+                                            break;
+
+
+                                    }
+                                    @month
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.year)
+                                </td>
+
+
+
+
+                                <td>
+                                    @Html.ActionLink("Mutabakatlar", "Index", "Reconciliations", new { id = item.agreementID }, new { @class = "btn btn-warning btn-sm" })
+
+                                    @Html.ActionLink("Düzenle", "Edit", new { id = item.agreementID }, new { @class = "btn btn-purple btn-sm" })
+
+                                    @Html.ActionLink("Sil", "Delete", new { id = item.agreementID }, new { @class = "btn btn-pink btn-sm" })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Ay")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Yıl")
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+
+</div>

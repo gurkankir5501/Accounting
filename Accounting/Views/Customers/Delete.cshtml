@@ -1,0 +1,123 @@
+﻿@model Accounting.Models.Customers
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Müşteri Silme</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <h4>Silmek İstediğinize Emin Misiniz?</h4>
+                <dl class="dl-horizontal mt-sm-20">
+                    <dt>
+                        @Html.DisplayName("Şirket Adı :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customerCompanyName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Telefon Numarası :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customerGSM)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Sabit telefon")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customerPhone)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Müşteri Adı :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customerName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Müşteri Adres :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customerAddress)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("E-Mail :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customerDescription)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Vergi Numarası :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.taxNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Tc Kimlik Numarası :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tcNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Şehir :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Cities.cityName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Ülke :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Countries.countryName)
+                    </dd>
+
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color float-md-right mt-sm-20">
+                        @Html.ActionLink("Geri Dön", "Index",null, new { @class = "btn btn-purple" })
+                        <input type="submit" value="Sil" class="btn btn-pink" />
+
+                    </div>
+                }
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+
+    </div>
+</div>

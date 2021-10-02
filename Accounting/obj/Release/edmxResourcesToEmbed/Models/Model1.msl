@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="arisanerpModelStoreContainer" CdmEntityContainer="arisanerpEntities">
+    <EntitySetMapping Name="Agreement">
+      <EntityTypeMapping TypeName="arisanerpModel.Agreement">
+        <MappingFragment StoreEntitySet="Agreement">
+          <ScalarProperty Name="agreementID" ColumnName="agreementID" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="agreementType" ColumnName="agreementType" />
+          <ScalarProperty Name="buyingSales" ColumnName="buyingSales" />
+          <ScalarProperty Name="documentname" ColumnName="documentname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="arisanerpModel.Bills">
+        <MappingFragment StoreEntitySet="Bills">
+          <ScalarProperty Name="billsID" ColumnName="billsID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="info" ColumnName="info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="arisanerpModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+          <ScalarProperty Name="countryID" ColumnName="countryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="arisanerpModel.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="countryID" ColumnName="countryID" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="arisanerpModel.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="customerCompanyName" ColumnName="customerCompanyName" />
+          <ScalarProperty Name="customerGSM" ColumnName="customerGSM" />
+          <ScalarProperty Name="customerPhone" ColumnName="customerPhone" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="customerAddress" ColumnName="customerAddress" />
+          <ScalarProperty Name="customerDescription" ColumnName="customerDescription" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="countryID" ColumnName="countryID" />
+          <ScalarProperty Name="taxNumber" ColumnName="taxNumber" />
+          <ScalarProperty Name="tcNumber" ColumnName="tcNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentForemans">
+      <EntityTypeMapping TypeName="arisanerpModel.DepartmentForemans">
+        <MappingFragment StoreEntitySet="DepartmentForemans">
+          <ScalarProperty Name="depForeID" ColumnName="depForeID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="arisanerpModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="departmentName" ColumnName="departmentName" />
+          <ScalarProperty Name="departmentStatus" ColumnName="departmentStatus" />
+          <ScalarProperty Name="departmentTypeID" ColumnName="departmentTypeID" />
+          <ScalarProperty Name="hasSemiProduct" ColumnName="hasSemiProduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentTypes">
+      <EntityTypeMapping TypeName="arisanerpModel.DepartmentTypes">
+        <MappingFragment StoreEntitySet="DepartmentTypes">
+          <ScalarProperty Name="departmentTypeID" ColumnName="departmentTypeID" />
+          <ScalarProperty Name="departmentTypeName" ColumnName="departmentTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeConsents">
+      <EntityTypeMapping TypeName="arisanerpModel.EmployeeConsents">
+        <MappingFragment StoreEntitySet="EmployeeConsents">
+          <ScalarProperty Name="empConsentID" ColumnName="empConsentID" />
+          <ScalarProperty Name="empID" ColumnName="empID" />
+          <ScalarProperty Name="consDescription" ColumnName="consDescription" />
+          <ScalarProperty Name="consStartDate" ColumnName="consStartDate" />
+          <ScalarProperty Name="consFinishDate" ColumnName="consFinishDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeRolePerformances">
+      <EntityTypeMapping TypeName="arisanerpModel.EmployeeRolePerformances">
+        <MappingFragment StoreEntitySet="EmployeeRolePerformances">
+          <ScalarProperty Name="performanceID" ColumnName="performanceID" />
+          <ScalarProperty Name="empRoleID" ColumnName="empRoleID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="performance" ColumnName="performance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeRoles">
+      <EntityTypeMapping TypeName="arisanerpModel.EmployeeRoles">
+        <MappingFragment StoreEntitySet="EmployeeRoles">
+          <ScalarProperty Name="empRoleID" ColumnName="empRoleID" />
+          <ScalarProperty Name="empRoleName" ColumnName="empRoleName" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="salaryFood" ColumnName="salaryFood" />
+          <ScalarProperty Name="salaryService" ColumnName="salaryService" />
+          <ScalarProperty Name="salarySSK" ColumnName="salarySSK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="arisanerpModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="empID" ColumnName="empID" />
+          <ScalarProperty Name="empName" ColumnName="empName" />
+          <ScalarProperty Name="empStartDate" ColumnName="empStartDate" />
+          <ScalarProperty Name="empPhone" ColumnName="empPhone" />
+          <ScalarProperty Name="empAddress" ColumnName="empAddress" />
+          <ScalarProperty Name="empStatus" ColumnName="empStatus" />
+          <ScalarProperty Name="empQuitDate" ColumnName="empQuitDate" />
+          <ScalarProperty Name="empRoleID" ColumnName="empRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeSalaries">
+      <EntityTypeMapping TypeName="arisanerpModel.EmployeeSalaries">
+        <MappingFragment StoreEntitySet="EmployeeSalaries">
+          <ScalarProperty Name="empSalaryID" ColumnName="empSalaryID" />
+          <ScalarProperty Name="empID" ColumnName="empID" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="salaryDate" ColumnName="salaryDate" />
+          <ScalarProperty Name="salaryService" ColumnName="salaryService" />
+          <ScalarProperty Name="salaryFood" ColumnName="salaryFood" />
+          <ScalarProperty Name="salarySSK" ColumnName="salarySSK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="arisanerpModel.Expenses">
+        <MappingFragment StoreEntitySet="Expenses">
+          <ScalarProperty Name="expenseID" ColumnName="expenseID" />
+          <ScalarProperty Name="expenseName" ColumnName="expenseName" />
+          <ScalarProperty Name="expensePrice" ColumnName="expensePrice" />
+          <ScalarProperty Name="expenseDate" ColumnName="expenseDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineEmployees">
+      <EntityTypeMapping TypeName="arisanerpModel.MachineEmployees">
+        <MappingFragment StoreEntitySet="MachineEmployees">
+          <ScalarProperty Name="machEmpID" ColumnName="machEmpID" />
+          <ScalarProperty Name="empID" ColumnName="empID" />
+          <ScalarProperty Name="machineID" ColumnName="machineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineFaults">
+      <EntityTypeMapping TypeName="arisanerpModel.MachineFaults">
+        <MappingFragment StoreEntitySet="MachineFaults">
+          <ScalarProperty Name="faultID" ColumnName="faultID" />
+          <ScalarProperty Name="machineID" ColumnName="machineID" />
+          <ScalarProperty Name="faultContent" ColumnName="faultContent" />
+          <ScalarProperty Name="faultDate" ColumnName="faultDate" />
+          <ScalarProperty Name="faultCost" ColumnName="faultCost" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MachineMolds">
+      <EntityTypeMapping TypeName="arisanerpModel.MachineMolds">
+        <MappingFragment StoreEntitySet="MachineMolds">
+          <ScalarProperty Name="machMoldID" ColumnName="machMoldID" />
+          <ScalarProperty Name="moldID" ColumnName="moldID" />
+          <ScalarProperty Name="machineID" ColumnName="machineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machines">
+      <EntityTypeMapping TypeName="arisanerpModel.Machines">
+        <MappingFragment StoreEntitySet="Machines">
+          <ScalarProperty Name="machineID" ColumnName="machineID" />
+          <ScalarProperty Name="machineName" ColumnName="machineName" />
+          <ScalarProperty Name="machineStatus" ColumnName="machineStatus" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="isMold" ColumnName="isMold" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="arisanerpModel.Materials">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="materialID" ColumnName="materialID" />
+          <ScalarProperty Name="materialName" ColumnName="materialName" />
+          <ScalarProperty Name="materialUnitPrice" ColumnName="materialUnitPrice" />
+          <ScalarProperty Name="materialType" ColumnName="materialType" />
+          <ScalarProperty Name="materialCurrencyType" ColumnName="materialCurrencyType" />
+          <ScalarProperty Name="materialOperationType" ColumnName="materialOperationType" />
+          <ScalarProperty Name="unitID" ColumnName="unitID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialStockRecords">
+      <EntityTypeMapping TypeName="arisanerpModel.MaterialStockRecords">
+        <MappingFragment StoreEntitySet="MaterialStockRecords">
+          <ScalarProperty Name="mstockRecordID" ColumnName="mstockRecordID" />
+          <ScalarProperty Name="materialStockID" ColumnName="materialStockID" />
+          <ScalarProperty Name="stockRecordDate" ColumnName="stockRecordDate" />
+          <ScalarProperty Name="stockRecordCount" ColumnName="stockRecordCount" />
+          <ScalarProperty Name="stockRecordOperation" ColumnName="stockRecordOperation" />
+          <ScalarProperty Name="worderID" ColumnName="worderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialStocks">
+      <EntityTypeMapping TypeName="arisanerpModel.MaterialStocks">
+        <MappingFragment StoreEntitySet="MaterialStocks">
+          <ScalarProperty Name="materialStockID" ColumnName="materialStockID" />
+          <ScalarProperty Name="materialID" ColumnName="materialID" />
+          <ScalarProperty Name="stockCount" ColumnName="stockCount" />
+          <ScalarProperty Name="warningAmount" ColumnName="warningAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MoldCounts">
+      <EntityTypeMapping TypeName="arisanerpModel.MoldCounts">
+        <MappingFragment StoreEntitySet="MoldCounts">
+          <ScalarProperty Name="moldCountID" ColumnName="moldCountID" />
+          <ScalarProperty Name="moldID" ColumnName="moldID" />
+          <ScalarProperty Name="moldNoID" ColumnName="moldNoID" />
+          <ScalarProperty Name="moldCount" ColumnName="moldCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MoldNumbers">
+      <EntityTypeMapping TypeName="arisanerpModel.MoldNumbers">
+        <MappingFragment StoreEntitySet="MoldNumbers">
+          <ScalarProperty Name="moldNoID" ColumnName="moldNoID" />
+          <ScalarProperty Name="moldNo" ColumnName="moldNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Molds">
+      <EntityTypeMapping TypeName="arisanerpModel.Molds">
+        <MappingFragment StoreEntitySet="Molds">
+          <ScalarProperty Name="moldID" ColumnName="moldID" />
+          <ScalarProperty Name="moldName" ColumnName="moldName" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="arisanerpModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="orderName" ColumnName="orderName" />
+          <ScalarProperty Name="orderQuantity" ColumnName="orderQuantity" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="orderDeliveryDate" ColumnName="orderDeliveryDate" />
+          <ScalarProperty Name="orderStatus" ColumnName="orderStatus" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="orderDescription" ColumnName="orderDescription" />
+          <ScalarProperty Name="orderCounter" ColumnName="orderCounter" />
+          <ScalarProperty Name="orderConfirmation" ColumnName="orderConfirmation" />
+          <ScalarProperty Name="orderType" ColumnName="orderType" />
+          <ScalarProperty Name="orderStage" ColumnName="orderStage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parcel">
+      <EntityTypeMapping TypeName="arisanerpModel.Parcel">
+        <MappingFragment StoreEntitySet="Parcel">
+          <ScalarProperty Name="ParcelBarcodeID" ColumnName="ParcelBarcodeID" />
+          <ScalarProperty Name="workOrderId" ColumnName="workOrderId" />
+          <ScalarProperty Name="productType" ColumnName="productType" />
+          <ScalarProperty Name="moldNoId" ColumnName="moldNoId" />
+          <ScalarProperty Name="modelNoId" ColumnName="modelNoId" />
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="parcelType" ColumnName="parcelType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductBox">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductBox">
+        <MappingFragment StoreEntitySet="ProductBox">
+          <ScalarProperty Name="ProductBoxID" ColumnName="ProductBoxID" />
+          <ScalarProperty Name="workOrderId" ColumnName="workOrderId" />
+          <ScalarProperty Name="productType" ColumnName="productType" />
+          <ScalarProperty Name="moldNoId" ColumnName="moldNoId" />
+          <ScalarProperty Name="modelNoId" ColumnName="modelNoId" />
+          <ScalarProperty Name="ParcelBarcodeID" ColumnName="ParcelBarcodeID" />
+          <ScalarProperty Name="ProductBoxBarcode" ColumnName="ProductBoxBarcode" />
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductEmpRoles">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductEmpRoles">
+        <MappingFragment StoreEntitySet="ProductEmpRoles">
+          <ScalarProperty Name="prodEmpID" ColumnName="prodEmpID" />
+          <ScalarProperty Name="empRoleID" ColumnName="empRoleID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="empsNumber" ColumnName="empsNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMaterials">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductMaterials">
+        <MappingFragment StoreEntitySet="ProductMaterials">
+          <ScalarProperty Name="prodMatID" ColumnName="prodMatID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="materialID" ColumnName="materialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductModels">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductModels">
+        <MappingFragment StoreEntitySet="ProductModels">
+          <ScalarProperty Name="modelNoID" ColumnName="modelNoID" />
+          <ScalarProperty Name="modelName" ColumnName="modelName" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="arisanerpModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="departmentTypeID" ColumnName="departmentTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductStockBarcodeOut">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductStockBarcodeOut">
+        <MappingFragment StoreEntitySet="ProductStockBarcodeOut">
+          <ScalarProperty Name="pstockBoutID" ColumnName="pstockBoutID" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductStockRecords">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductStockRecords">
+        <MappingFragment StoreEntitySet="ProductStockRecords">
+          <ScalarProperty Name="pstockRecordID" ColumnName="pstockRecordID" />
+          <ScalarProperty Name="productStockID" ColumnName="productStockID" />
+          <ScalarProperty Name="stockRecordDate" ColumnName="stockRecordDate" />
+          <ScalarProperty Name="stockRecordCount" ColumnName="stockRecordCount" />
+          <ScalarProperty Name="stockRecordOperation" ColumnName="stockRecordOperation" />
+          <ScalarProperty Name="worderID" ColumnName="worderID" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="modelNoID" ColumnName="modelNoID" />
+          <ScalarProperty Name="moldNoID" ColumnName="moldNoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductStocks">
+      <EntityTypeMapping TypeName="arisanerpModel.ProductStocks">
+        <MappingFragment StoreEntitySet="ProductStocks">
+          <ScalarProperty Name="productStockID" ColumnName="productStockID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="stockCount" ColumnName="stockCount" />
+          <ScalarProperty Name="stockType" ColumnName="stockType" />
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="moldNoID" ColumnName="moldNoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeEmployees">
+      <EntityTypeMapping TypeName="arisanerpModel.RecipeEmployees">
+        <MappingFragment StoreEntitySet="RecipeEmployees">
+          <ScalarProperty Name="rempID" ColumnName="rempID" />
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="empRoleID" ColumnName="empRoleID" />
+          <ScalarProperty Name="rempSalary" ColumnName="rempSalary" />
+          <ScalarProperty Name="rempSalaryService" ColumnName="rempSalaryService" />
+          <ScalarProperty Name="rempSalaryFood" ColumnName="rempSalaryFood" />
+          <ScalarProperty Name="rempSalarySSK" ColumnName="rempSalarySSK" />
+          <ScalarProperty Name="empsNumber" ColumnName="empsNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeExpenses">
+      <EntityTypeMapping TypeName="arisanerpModel.RecipeExpenses">
+        <MappingFragment StoreEntitySet="RecipeExpenses">
+          <ScalarProperty Name="recipeExpID" ColumnName="recipeExpID" />
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="expenseName" ColumnName="expenseName" />
+          <ScalarProperty Name="spendingAmount" ColumnName="spendingAmount" />
+          <ScalarProperty Name="advanceUnitPrice" ColumnName="advanceUnitPrice" />
+          <ScalarProperty Name="expenseTotalPrice" ColumnName="expenseTotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecipeMaterials">
+      <EntityTypeMapping TypeName="arisanerpModel.RecipeMaterials">
+        <MappingFragment StoreEntitySet="RecipeMaterials">
+          <ScalarProperty Name="recipeMaterialID" ColumnName="recipeMaterialID" />
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="materialID" ColumnName="materialID" />
+          <ScalarProperty Name="spendingAmount" ColumnName="spendingAmount" />
+          <ScalarProperty Name="advanceUnitPrice" ColumnName="advanceUnitPrice" />
+          <ScalarProperty Name="formulaAmount" ColumnName="formulaAmount" />
+          <ScalarProperty Name="materialTotalPrice" ColumnName="materialTotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipes">
+      <EntityTypeMapping TypeName="arisanerpModel.Recipes">
+        <MappingFragment StoreEntitySet="Recipes">
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="recipeName" ColumnName="recipeName" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="productionQuantity" ColumnName="productionQuantity" />
+          <ScalarProperty Name="productWeight" ColumnName="productWeight" />
+          <ScalarProperty Name="exchangeRate" ColumnName="exchangeRate" />
+          <ScalarProperty Name="recipeTotalPrice" ColumnName="recipeTotalPrice" />
+          <ScalarProperty Name="recipeType" ColumnName="recipeType" />
+          <ScalarProperty Name="singProdCost" ColumnName="singProdCost" />
+          <ScalarProperty Name="materialsTotalPrice" ColumnName="materialsTotalPrice" />
+          <ScalarProperty Name="expensesTotalPrice" ColumnName="expensesTotalPrice" />
+          <ScalarProperty Name="boilCount" ColumnName="boilCount" />
+          <ScalarProperty Name="employeesTotalPrice" ColumnName="employeesTotalPrice" />
+          <ScalarProperty Name="productType" ColumnName="productType" />
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="moldNoID" ColumnName="moldNoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reconciliations">
+      <EntityTypeMapping TypeName="arisanerpModel.Reconciliations">
+        <MappingFragment StoreEntitySet="Reconciliations">
+          <ScalarProperty Name="reconID" ColumnName="reconID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="taxNumber" ColumnName="taxNumber" />
+          <ScalarProperty Name="documentNumber" ColumnName="documentNumber" />
+          <ScalarProperty Name="amountService" ColumnName="amountService" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="tcNumber" ColumnName="tcNumber" />
+          <ScalarProperty Name="representative" ColumnName="representative" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="processStatus" ColumnName="processStatus" />
+          <ScalarProperty Name="agreementID" ColumnName="agreementID" />
+          <ScalarProperty Name="sentStatus" ColumnName="sentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subOrders">
+      <EntityTypeMapping TypeName="arisanerpModel.subOrders">
+        <MappingFragment StoreEntitySet="subOrders">
+          <ScalarProperty Name="subOrderID" ColumnName="subOrderID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="modelNoID" ColumnName="modelNoID" />
+          <ScalarProperty Name="orderQuantityNumber" ColumnName="orderQuantityNumber" />
+          <ScalarProperty Name="productUnitPrice" ColumnName="productUnitPrice" />
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="sumiProductCounter" ColumnName="sumiProductCounter" />
+          <ScalarProperty Name="subOrderStage" ColumnName="subOrderStage" />
+          <ScalarProperty Name="billsID" ColumnName="billsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subWork">
+      <EntityTypeMapping TypeName="arisanerpModel.subWork">
+        <MappingFragment StoreEntitySet="subWork">
+          <ScalarProperty Name="subWorderID" ColumnName="subWorderID" />
+          <ScalarProperty Name="worderStartDate" ColumnName="worderStartDate" />
+          <ScalarProperty Name="worderFinishDate" ColumnName="worderFinishDate" />
+          <ScalarProperty Name="worderProgress" ColumnName="worderProgress" />
+          <ScalarProperty Name="subOrderID" ColumnName="subOrderID" />
+          <ScalarProperty Name="worderQuantity" ColumnName="worderQuantity" />
+          <ScalarProperty Name="semiProductCount" ColumnName="semiProductCount" />
+          <ScalarProperty Name="worderSemiProgress" ColumnName="worderSemiProgress" />
+          <ScalarProperty Name="worderID" ColumnName="worderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier">
+      <EntityTypeMapping TypeName="arisanerpModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="supplierID" ColumnName="supplierID" />
+          <ScalarProperty Name="supplierCompanyName" ColumnName="supplierCompanyName" />
+          <ScalarProperty Name="supplierGSM" ColumnName="supplierGSM" />
+          <ScalarProperty Name="supplierPhone" ColumnName="supplierPhone" />
+          <ScalarProperty Name="supplierName" ColumnName="supplierName" />
+          <ScalarProperty Name="supplierAddress" ColumnName="supplierAddress" />
+          <ScalarProperty Name="supplierDescription" ColumnName="supplierDescription" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="countryID" ColumnName="countryID" />
+          <ScalarProperty Name="taxNumber" ColumnName="taxNumber" />
+          <ScalarProperty Name="tcNumber" ColumnName="tcNumber" />
+          <ScalarProperty Name="supplierMailAddress" ColumnName="supplierMailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table">
+      <EntityTypeMapping TypeName="arisanerpModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="BillsID" ColumnName="BillsID" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="arisanerpModel.Units">
+        <MappingFragment StoreEntitySet="Units">
+          <ScalarProperty Name="unitID" ColumnName="unitID" />
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="arisanerpModel.UserRoles">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="userRoleID" ColumnName="userRoleID" />
+          <ScalarProperty Name="userRoleName" ColumnName="userRoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="arisanerpModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userRoleID" ColumnName="userRoleID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WordepMachines">
+      <EntityTypeMapping TypeName="arisanerpModel.WordepMachines">
+        <MappingFragment StoreEntitySet="WordepMachines">
+          <ScalarProperty Name="worMachID" ColumnName="worMachID" />
+          <ScalarProperty Name="machineID" ColumnName="machineID" />
+          <ScalarProperty Name="worDepID" ColumnName="worDepID" />
+          <ScalarProperty Name="worMachStatus" ColumnName="worMachStatus" />
+          <ScalarProperty Name="worMachProgress" ColumnName="worMachProgress" />
+          <ScalarProperty Name="worMachStartDate" ColumnName="worMachStartDate" />
+          <ScalarProperty Name="worMachFinishDate" ColumnName="worMachFinishDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorDepMachMolds">
+      <EntityTypeMapping TypeName="arisanerpModel.WorDepMachMolds">
+        <MappingFragment StoreEntitySet="WorDepMachMolds">
+          <ScalarProperty Name="machMoldID" ColumnName="machMoldID" />
+          <ScalarProperty Name="moldCountID" ColumnName="moldCountID" />
+          <ScalarProperty Name="worMachID" ColumnName="worMachID" />
+          <ScalarProperty Name="worMoldCount" ColumnName="worMoldCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorderDepartments">
+      <EntityTypeMapping TypeName="arisanerpModel.WorderDepartments">
+        <MappingFragment StoreEntitySet="WorderDepartments">
+          <ScalarProperty Name="worDepID" ColumnName="worDepID" />
+          <ScalarProperty Name="worderID" ColumnName="worderID" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="worDepProgress" ColumnName="worDepProgress" />
+          <ScalarProperty Name="worDepStatus" ColumnName="worDepStatus" />
+          <ScalarProperty Name="wordepStartDate" ColumnName="wordepStartDate" />
+          <ScalarProperty Name="wordepFinishDate" ColumnName="wordepFinishDate" />
+          <ScalarProperty Name="subWorderID" ColumnName="subWorderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorderEmpDayOffs">
+      <EntityTypeMapping TypeName="arisanerpModel.WorderEmpDayOffs">
+        <MappingFragment StoreEntitySet="WorderEmpDayOffs">
+          <ScalarProperty Name="worEmpDoffID" ColumnName="worEmpDoffID" />
+          <ScalarProperty Name="worMachEmpID" ColumnName="worMachEmpID" />
+          <ScalarProperty Name="currentTime" ColumnName="currentTime" />
+          <ScalarProperty Name="dayOffDescription" ColumnName="dayOffDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorderRecipes">
+      <EntityTypeMapping TypeName="arisanerpModel.WorderRecipes">
+        <MappingFragment StoreEntitySet="WorderRecipes">
+          <ScalarProperty Name="worRecipeID" ColumnName="worRecipeID" />
+          <ScalarProperty Name="worderID" ColumnName="worderID" />
+          <ScalarProperty Name="recipeID" ColumnName="recipeID" />
+          <ScalarProperty Name="subWorderID" ColumnName="subWorderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkOrders">
+      <EntityTypeMapping TypeName="arisanerpModel.WorkOrders">
+        <MappingFragment StoreEntitySet="WorkOrders">
+          <ScalarProperty Name="worderID" ColumnName="worderID" />
+          <ScalarProperty Name="worderContent" ColumnName="worderContent" />
+          <ScalarProperty Name="worderStartDate" ColumnName="worderStartDate" />
+          <ScalarProperty Name="worderFinishDate" ColumnName="worderFinishDate" />
+          <ScalarProperty Name="worderProgress" ColumnName="worderProgress" />
+          <ScalarProperty Name="worderStatus" ColumnName="worderStatus" />
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="worderQuantity" ColumnName="worderQuantity" />
+          <ScalarProperty Name="semiProductCount" ColumnName="semiProductCount" />
+          <ScalarProperty Name="worderSemiProgress" ColumnName="worderSemiProgress" />
+          <ScalarProperty Name="worderDescription" ColumnName="worderDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorMachEmployees">
+      <EntityTypeMapping TypeName="arisanerpModel.WorMachEmployees">
+        <MappingFragment StoreEntitySet="WorMachEmployees">
+          <ScalarProperty Name="worMachEmpID" ColumnName="worMachEmpID" />
+          <ScalarProperty Name="empID" ColumnName="empID" />
+          <ScalarProperty Name="worMachID" ColumnName="worMachID" />
+          <ScalarProperty Name="employeeTotal" ColumnName="employeeTotal" />
+          <ScalarProperty Name="dayOffCount" ColumnName="dayOffCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorMachEmpWorks">
+      <EntityTypeMapping TypeName="arisanerpModel.WorMachEmpWorks">
+        <MappingFragment StoreEntitySet="WorMachEmpWorks">
+          <ScalarProperty Name="empWorkID" ColumnName="empWorkID" />
+          <ScalarProperty Name="dailyProductCount" ColumnName="dailyProductCount" />
+          <ScalarProperty Name="worMachEmpID" ColumnName="worMachEmpID" />
+          <ScalarProperty Name="workDate" ColumnName="workDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Document">
+      <EntityTypeMapping TypeName="arisanerpModel.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="reconciliationsDocumentID" ColumnName="reconciliationsDocumentID" />
+          <ScalarProperty Name="documentPath" ColumnName="documentPath" />
+          <ScalarProperty Name="documentID" ColumnName="documentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReconciliationsDocument">
+      <EntityTypeMapping TypeName="arisanerpModel.ReconciliationsDocument">
+        <MappingFragment StoreEntitySet="ReconciliationsDocument">
+          <ScalarProperty Name="operationDate" ColumnName="operationDate" />
+          <ScalarProperty Name="reconID" ColumnName="reconID" />
+          <ScalarProperty Name="setGetStatus" ColumnName="setGetStatus" />
+          <ScalarProperty Name="messages" ColumnName="messages" />
+          <ScalarProperty Name="reconciliationsDocumentID" ColumnName="reconciliationsDocumentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

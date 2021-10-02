@@ -1,0 +1,99 @@
+﻿@model Accounting.Models.Customers
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customerCompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerCompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerGSM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerGSM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.taxNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taxNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tcNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tcNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cities.cityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cities.cityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Countries.countryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Countries.countryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.customerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

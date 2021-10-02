@@ -1,0 +1,115 @@
+﻿@model Accounting.Models.Reconciliations
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Mutabakat Silme</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <h4>Silmek İstediğinize Emin Misiniz?</h4>
+                <dl class="dl-horizontal mt-sm-20">
+                    <dt>
+                        @Html.DisplayName("Ad Soyad/Ünvan :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.title)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Ülke :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.country)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Vergi numarası :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.taxNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Fatura Adeti :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.documentNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Hizmet/Mal Tutarı :")
+                    </dt>
+
+                    <dd>
+                        @(Model.amountService.ToString("#,##0.00"))
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Telefon Numarası :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.phoneNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("TC Kimlik Numarası :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tcNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Görüşen :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.representative)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Görüşülen :")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.customer)
+                    </dd>
+
+
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color float-md-right mt-sm-20" >
+                        @Html.ActionLink("Geri Dön", "Index",new {id=Model.agreementID },new {@class="btn btn-purple" })
+                        <input type="submit" value="Sil" class="btn btn-pink" /> 
+
+                    </div>
+                }
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+
+    </div>
+</div>

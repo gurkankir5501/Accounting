@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16b15dc00aed403984df686c05dc05a6" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="arisanerpModel.Agreement" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Bills" Width="1.5" PointX="8.25" PointY="67" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Cities" Width="1.5" PointX="3.75" PointY="63.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Countries" Width="1.5" PointX="1.5" PointY="63.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Customers" Width="1.5" PointX="6" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.DepartmentForemans" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Departments" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.DepartmentTypes" Width="1.5" PointX="0.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.EmployeeConsents" Width="1.5" PointX="7.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.EmployeeRolePerformances" Width="1.5" PointX="5.25" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.EmployeeRoles" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Employees" Width="1.5" PointX="5.25" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.EmployeeSalaries" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Expenses" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MachineEmployees" Width="1.5" PointX="7.5" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MachineFaults" Width="1.5" PointX="7.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MachineMolds" Width="1.5" PointX="7.5" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Machines" Width="1.5" PointX="5.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Materials" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MaterialStockRecords" Width="1.5" PointX="12.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MaterialStocks" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MoldCounts" Width="1.5" PointX="7.5" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.MoldNumbers" Width="1.5" PointX="8.25" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Molds" Width="1.5" PointX="5.25" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Orders" Width="1.5" PointX="8.25" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Parcel" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductBox" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductEmpRoles" Width="1.5" PointX="8.25" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductMaterials" Width="1.5" PointX="8.25" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductModels" Width="1.5" PointX="5.25" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Products" Width="1.5" PointX="3" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductStockBarcodeOut" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductStockRecords" Width="1.5" PointX="7.5" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.ProductStocks" Width="1.5" PointX="5.25" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.RecipeEmployees" Width="1.5" PointX="7.5" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.RecipeExpenses" Width="1.5" PointX="7.5" PointY="55.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.RecipeMaterials" Width="1.5" PointX="10.5" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Recipes" Width="1.5" PointX="5.25" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Reconciliations" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.subOrders" Width="1.5" PointX="10.5" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.subWork" Width="1.5" PointX="12.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Supplier" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Table" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Units" Width="1.5" PointX="3.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.UserRoles" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.Users" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WordepMachines" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorDepMachMolds" Width="1.5" PointX="12.75" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorderDepartments" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorderEmpDayOffs" Width="1.5" PointX="15" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorderRecipes" Width="1.5" PointX="15" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorkOrders" Width="1.5" PointX="10.5" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorMachEmployees" Width="1.5" PointX="12.75" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="arisanerpModel.WorMachEmpWorks" Width="1.5" PointX="15" PointY="28" IsExpanded="true" />
+        <AssociationConnector Association="arisanerpModel.FK_Reconciliations_Agreement" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Bills_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Cities_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Customers_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Customers_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Orders_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_DepartmentForemans_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_DepartmentForemans_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Departments_DepartmentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Machines_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderDepartments_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Products_DepartmentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_EmployeeConsents_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_EmployeeRolePerformances_EmployeeRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_EmployeeRolePerformances_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Employees_EmployeeRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductEmpRoles_EmployeeRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_RecipeEmployees_EmployeeRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_EmployeeSalaries_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MachineEmployees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorMachEmployees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MachineEmployees_Machines" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MachineFaults_Machines" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MachineMolds_Machines" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MachineMolds_Molds" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WordepMachines_Machines" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Materials_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MaterialStocks_Materials" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductMaterials_Materials" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_RecipeMaterials_Materials" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MaterialStockRecords_MaterialStocks" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MaterialStockRecords_WorkOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MoldCounts_MoldNumbers" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_MoldCounts_Molds" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorDepMachMolds_MoldCounts" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductStockRecords_MoldNumbers" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_subOrders_MoldNumbers" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Molds_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_subOrders_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorkOrders_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductEmpRoles_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductMaterials_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductModels_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductStockRecords_ProductModels" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_subOrders_ProductModels" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductStocks_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Recipes_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_subOrders_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductStockRecords_ProductStocks" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_ProductStockRecords_subWork" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_RecipeEmployees_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_RecipeExpenses_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_RecipeMaterials_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderRecipes_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_subWork_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_subWork_WorkOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderDepartments_subWork" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderRecipes_subWork" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_Users_UserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WordepMachines_WorderDepartments" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorDepMachMolds_WorDepMachines" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorMachEmployees_WorDepMachines" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderDepartments_WorkOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderEmpDayOffs_WorMachEmployees" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorderRecipes_WorkOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="arisanerpModel.FK_WorMachEmpWorks_WorMachEmployees" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="arisanerpModel.Document" Width="1.5" PointX="7.5" PointY="70.125" />
+        <EntityTypeShape EntityType="arisanerpModel.ReconciliationsDocument" Width="1.5" PointX="5.25" PointY="70" />
+        <AssociationConnector Association="arisanerpModel.FK_Document_ReconciliationsDocument" />
+        <AssociationConnector Association="arisanerpModel.FK_ReconciliationsDocument_Reconciliations" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

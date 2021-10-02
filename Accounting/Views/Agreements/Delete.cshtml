@@ -1,0 +1,75 @@
+﻿@model Accounting.Models.Agreement
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Mutabakat İşlemleri</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+
+
+
+                <h2>Silmek İstediğinize Emin Misiniz?</h2>
+                <hr />
+                <div>
+
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.year)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.year)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.month)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.month)
+                        </dd>
+
+                      
+
+                     
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color mt-md-25 float-right">
+                            @Html.ActionLink("Geri Dön", "Index",new {type=Model.agreementType,buyingSales=Model.buyingSales },new {@class="btn btn-purple" })
+                            <input type="submit" value="Sil" class="btn btn-pink" /> 
+
+                        </div>
+                    }
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+
+    </div>
+</div>
+
+
+

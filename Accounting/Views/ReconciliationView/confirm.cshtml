@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<html lang="en">
+
+<head>
+
+    <title>@ViewBag.Messages</title>
+    <link rel="icon" href="@Url.Content("~/Content/images/Apple_Hesap_makinesi_Calculator-icon.png")">
+    @Html.Partial("/Views/Shared/_header.cshtml")
+</head>
+<body class="hold-transition">
+
+    <section class="bg-img h-p100" style="background-image: url(@Url.Content("~/Content/images/6.jpg"));" data-overlay="3">
+        <div class="container h-p100">
+            <div class="row h-p100 align-items-center justify-content-center">
+
+                <div class="col-12">
+                    <h1 class="error-title my-30">@ViewBag.Messages</h1>
+                    <div class="main-agileits bg-img" style="background-image: url(@Url.Content("~/Content/images/6.jpg"));" data-overlay="7">
+                        <h2 class="font-size-80">Teşekkür Ederiz !</h2>
+                        <p class="para-wthree">Bir sorun ile karşılaştıysanız <span>mesut.serdar@arisanlastik.com.tr</span> e-mail adresi ile iletişime geçiniz !</p>
+                    </div>
+
+                    <footer class="main-footer bg-transparent text-white ml-0 text-center no-border">
+                        year © @DateTime.Now.Year <a href="https://www.arisanlastik.com/" class="text-info hover-danger">www.arisanlastik.com</a>. All Rights Reserved.
+                    </footer>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    @Html.Partial("/Views/Shared/_footer.cshtml")
+
+</body>
+</html>
